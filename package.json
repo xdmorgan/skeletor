@@ -1,0 +1,15 @@
+{
+  "name": "skeletor",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "https://github.com/xdmorgan/skeletor.git",
+  "author": "Dan Morgan",
+  "license": "MIT",
+  "scripts": {
+    "start": "node-sass -w src -o dist --source-map true",
+    "build": "node-sass src/skeletor.scss dist/skeletor.css --source-map true"
+  },
+  "devDependencies": {
+    "node-sass": "^4.9.3"
+  }
+}

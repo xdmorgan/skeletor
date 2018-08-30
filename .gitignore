@@ -1,2 +1,5 @@
+node_modules/
+dist/
 .sass-cache/
 *.css.map
+*.log
