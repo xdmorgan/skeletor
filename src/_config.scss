@@ -2,20 +2,20 @@
 // Spacing
 // ----------------------------------------------------------------------------
 
-$space-base: 1rem; // 🌖
+$space-base: 8px; // 🌖
 $space-sizes: (
-  0: 0,
-  tiny: $space-base * 0.25,
-  narrow: $space-base * 0.5,
-  compact: $space-base * 1,
+  none: 0,
+  quarter: $space-base * 0.25,
+  half: $space-base * 0.5,
+  single: $space-base * 1,
   spacious: $space-base * 1.5,
-  comfortable: $space-base * 2,
-  sparse: $space-base * 3,
-  woah: $space-base * 4
+  double: $space-base * 2,
+  triple: $space-base * 3,
+  quad: $space-base * 4
 );
 
 $breakpoints: (
-  xs: 420px,
+  xs: 375px,
   sm: 500px,
   md: 750px,
   lg: 1000px,
