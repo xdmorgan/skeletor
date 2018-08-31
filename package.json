@@ -6,8 +6,8 @@
   "author": "Dan Morgan",
   "license": "MIT",
   "scripts": {
-    "start": "node-sass -w src -o dist --source-map true",
-    "build": "node-sass src/skeletor.scss dist/skeletor.css --source-map true"
+    "start": "node-sass -w src -o dist --source-map true --output-style compact",
+    "build": "node-sass src/skeletor.scss dist/skeletor.css --source-map true --output-style compressed"
   },
   "devDependencies": {
     "node-sass": "^4.9.3"

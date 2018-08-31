@@ -1,0 +1,66 @@
+// ----------------------------------------------------------------------------
+// Spacing
+// ----------------------------------------------------------------------------
+
+$props: (
+  p: padding,
+  m: margin
+);
+$dirs: (
+  t: top,
+  r: right,
+  b: bottom,
+  l: left
+);
+
+@each $space-key, $space-val in $space-sizes {
+  $name: $space-key;
+  // $name: index(($space-sizes), ($space-key $space-val)) - 1
+
+  @each $prop-key, $prop-val in $props {
+    .#{$prop-key}-#{$name} {
+      #{$prop-val}: $space-val;
+    }
+    .#{$prop-key}x-#{$name} {
+      #{$prop-val}-left: $space-val;
+      #{$prop-val}-right: $space-val;
+    }
+    .#{$prop-key}y-#{$name} {
+      #{$prop-val}-top: $space-val;
+      #{$prop-val}-bottom: $space-val;
+    }
+
+    @each $dir-key, $dir-val in $dirs {
+      .#{$prop-key}#{$dir-key}-#{$name} {
+        #{$prop-val}-#{$dir-val}: $space-val;
+      }
+    }
+  }
+}
+
+@each $breakpoint-key, $breakpoint-val in $breakpoints {
+  @media (min-width: $breakpoint-val) {
+    @each $space-key, $space-val in $space-sizes {
+      $name: $space-key;
+      // $name: index(($space-sizes), ($space-key $space-val)) - 1;
+      @each $prop-key, $prop-val in $props {
+        .#{$breakpoint-key}\:#{$prop-key}-#{$name} {
+          #{$prop-val}: $space-val;
+        }
+        .#{$breakpoint-key}\:#{$prop-key}x-#{$name} {
+          #{$prop-val}-left: $space-val;
+          #{$prop-val}-right: $space-val;
+        }
+        .#{$breakpoint-key}\:#{$prop-key}y-#{$name} {
+          #{$prop-val}-top: $space-val;
+          #{$prop-val}-bottom: $space-val;
+        }
+        @each $dir-key, $dir-val in $dirs {
+          .#{$breakpoint-key}\:#{$prop-key}#{$dir-key}-#{$name} {
+            #{$prop-val}-#{$dir-val}: $space-val;
+          }
+        }
+      }
+    }
+  }
+}
