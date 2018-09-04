@@ -54,11 +54,11 @@ $breakpoints: (
 //   }
 // }
 
-// @mixin min-width($size) {
-//   @media (min-width: $size) {
-//     @content;
-//   }
-// }
+@mixin min-width($size) {
+  @media (min-width: $size) {
+    @content;
+  }
+}
 
 // ----------------------------------------------------------------------------
 // Z-index layering
