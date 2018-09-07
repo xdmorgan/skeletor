@@ -22,40 +22,48 @@ $breakpoints: (
   xl: 1250px
 );
 
-// @function spacing($key: md) {
-//   @return map-get($space-sizes, $key);
-// }
+@function safe-map-get($map, $key) {
+  $val: map-get($map, $key);
+  @if (type-of($val) == "null") {
+    @error 'Key `#{$key}` not found in provided map: `#{$map}`';
+  }
+  @return $val;
+}
 
-// @function to-spacing($factor: 1) {
-//   @return $space-base * $factor;
-// }
+@function spacing($key) {
+  @return safe-map-get($space-sizes, $key);
+}
+
+@function to-spacing($factor) {
+  @return $space-base * $factor;
+}
 
 // ----------------------------------------------------------------------------
 // Layout, and Breakpoints
 // ----------------------------------------------------------------------------
 
-// @function breakpoint($key) {
-//   @return map-get($breakpoints, $key);
-// }
+@function breakpoint($key) {
+  @return safe-map-get($breakpoints, $key);
+}
 
 // $container: (
-//   pad-h: spacing(lg),
-//   pad-v: spacing(md),
-//   min: map-get($breakpoints, xs),
-//   max: map-get($breakpoints, xl),
+//   px: spacing(lg),
+//   py: spacing(md),
+//   min: safe-map-get($breakpoints, xs),
+//   max: safe-map-get($breakpoints, xl),
 //   max-editorial: map-get($breakpoints, md),
 //   max-wide: 1500px
 // );
 
-// @mixin max-width($size) {
-//   // prevent min and max width overlap pixel
-//   @media (max-width: ($size - 1)) {
-//     @content;
-//   }
-// }
-
 @mixin min-width($size) {
   @media (min-width: $size) {
+    @content;
+  }
+}
+
+@mixin max-width($size) {
+  // prevent min and max width overlap pixel
+  @media (max-width: ($size - 1)) {
     @content;
   }
 }
