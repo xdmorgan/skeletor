@@ -1,0 +1,65 @@
+$num-cols: 6;
+$gutter-size: 20px;
+$container-w: 600px;
+$col-size: 100% / $num-cols;
+
+// TODO: if debug bool, include space visualizers
+// only debug coz it adds so much to output
+
+@mixin debug($color: red) {
+  outline: 1px solid rgba($color, 0.25);
+}
+
+.g {
+  @include debug();
+  width: $container-w;
+  display: flex;
+  margin-left: -$gutter-size;
+  flex-wrap: wrap;
+}
+
+@mixin grid-column($span) {
+  flex: none;
+  margin-left: $gutter-size;
+  width: calc(#{$col-size * $span} - #{$gutter-size});
+}
+
+@mixin grid-offset($span) {
+  width: calc(#{$col-size * $span} - #{$gutter-size});
+}
+
+.gc-fit {
+  flex: 1;
+  margin-left: $gutter-size;
+}
+
+.gc-fixed {
+  flex: 0;
+  margin-left: $gutter-size;
+}
+
+@for $_col-span from 1 to ($num-cols + 1) {
+  .gc-#{$_col-span} {
+    @include grid-column($_col-span);
+  }
+}
+@for $_col-offset from 1 to $num-cols {
+  .gc-o-#{$_col-offset} {
+    @include grid-column($_col-offset);
+  }
+}
+
+@each $b-key, $b-val in $breakpoints {
+  @include min-width($b-val) {
+    @for $_col-span from 1 to ($num-cols + 1) {
+      .#{$b-key}\:gc-#{$_col-span} {
+        @include grid-column($_col-span);
+      }
+    }
+    @for $_col-offset from 1 to $num-cols {
+      .#{$b-key}\:gc-o-#{$_col-offset} {
+        @include grid-column($_col-offset);
+      }
+    }
+  }
+}
