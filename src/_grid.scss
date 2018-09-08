@@ -1,5 +1,5 @@
-$num-cols: 6;
-$gutter-size: 20px;
+$num-cols: 12;
+$gutter-size: 24px;
 $container-w: 600px;
 $col-size: 100% / $num-cols;
 
@@ -16,6 +16,14 @@ $col-size: 100% / $num-cols;
   display: flex;
   margin-left: -$gutter-size;
   flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+
+  @each $b-key, $b-val in $breakpoints {
+    @include min-width($b-val) {
+      width: ($b-val - ($gutter-size * 2));
+    }
+  }
 }
 
 @mixin grid-column($span) {
@@ -28,24 +36,23 @@ $col-size: 100% / $num-cols;
   width: calc(#{$col-size * $span} - #{$gutter-size});
 }
 
-.gc-fit {
+.gc {
+  @include debug();
   flex: 1;
   margin-left: $gutter-size;
-}
 
-.gc-fixed {
-  flex: 0;
-  margin-left: $gutter-size;
-}
-
-@for $_col-span from 1 to ($num-cols + 1) {
-  .gc-#{$_col-span} {
-    @include grid-column($_col-span);
+  &-fixed {
+    flex: 0;
   }
-}
-@for $_col-offset from 1 to $num-cols {
-  .gc-o-#{$_col-offset} {
-    @include grid-column($_col-offset);
+  @for $_col-span from 1 to ($num-cols + 1) {
+    &-#{$_col-span} {
+      @include grid-column($_col-span);
+    }
+  }
+  @for $_col-offset from 1 to $num-cols {
+    &-o-#{$_col-offset} {
+      @include grid-column($_col-offset);
+    }
   }
 }
 
@@ -58,7 +65,7 @@ $col-size: 100% / $num-cols;
     }
     @for $_col-offset from 1 to $num-cols {
       .#{$b-key}\:gc-o-#{$_col-offset} {
-        @include grid-column($_col-offset);
+        @include grid-offset($_col-offset);
       }
     }
   }
