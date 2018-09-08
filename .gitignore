@@ -3,3 +3,4 @@ dist/
 .sass-cache/
 *.css.map
 *.log
+.DS_Store

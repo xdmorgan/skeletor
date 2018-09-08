@@ -81,9 +81,10 @@ $breakpoints: (
 // );
 
 // @function z-index($key) {
-//   @return map-get($z-index, $key);
+//   @return safe-map-get($z-index, $key);
 // }
 
 // @mixin z-index($key) {
+// safe-map-get and return rule, if valid
 //   z-index: z-index($key);
 // }
