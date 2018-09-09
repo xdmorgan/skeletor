@@ -1,0 +1,70 @@
+/*
+https://woorkup.com/system-font/
+https://css-tricks.com/snippets/css/better-helvetica/
+https://css-tricks.com/snippets/css/font-stacks/
+*/
+
+$font-stacks: (
+  system: (
+    -apple-system,
+    system-ui,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Helvetica,
+    Arial,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol"
+  ),
+  sans: (
+    "HelveticaNeue-Light",
+    "Helvetica Neue Light",
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    "Lucida Grande",
+    sans-serif
+  ),
+  serif: (
+    Cambria,
+    "Hoefler Text",
+    Utopia,
+    "Liberation Serif",
+    "Nimbus Roman No9 L Regular",
+    Times,
+    "Times New Roman",
+    serif
+  ),
+  mono: (
+    Consolas,
+    "Andale Mono WT",
+    "Andale Mono",
+    "Lucida Console",
+    "Lucida Sans Typewriter",
+    "DejaVu Sans Mono",
+    "Bitstream Vera Sans Mono",
+    "Liberation Mono",
+    "Nimbus Mono L",
+    Monaco,
+    "Courier New",
+    Courier,
+    monospace
+  )
+);
+
+@each $ff-key, $ff-val in $font-stacks {
+  .ff-#{$ff-key} {
+    font-family: $ff-val;
+  }
+}
+
+@each $b-key, $b-val in $breakpoints {
+  @include min-width($b-val) {
+    @each $ff-key, $ff-val in $font-stacks {
+      .#{$b-key}\:ff-#{$ff-key} {
+        font-family: $ff-val;
+      }
+    }
+  }
+}
