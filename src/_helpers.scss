@@ -1,0 +1,55 @@
+@function safe-map-get($map, $key) {
+  $val: map-get($map, $key);
+  @if (type-of($val) == "null") {
+    @error 'Key `#{$key}` not found in provided map: `#{$map}`';
+  }
+  @return $val;
+}
+
+@function spacing($key) {
+  @return safe-map-get($space-sizes, $key);
+}
+
+@function to-spacing($factor) {
+  @return $space-base * $factor;
+}
+
+@function breakpoint($key) {
+  @return safe-map-get($breakpoints, $key);
+}
+
+@mixin min-width($size) {
+  @media (min-width: $size) {
+    @content;
+  }
+}
+
+@mixin max-width($size) {
+  // prevent min and max width overlap pixel
+  @media (max-width: ($size - 1)) {
+    @content;
+  }
+}
+
+// @function z-index($key) {
+//   @return safe-map-get($z-index, $key);
+// }
+
+// @mixin z-index($key) {
+// safe-map-get and return rule, if valid
+//   z-index: z-index($key);
+// }
+
+@mixin debug-outline($color: red) {
+  outline: 1px solid rgba($color, 0.25);
+}
+
+@mixin property-x($prop, $val) {
+  #{$prop}-left: $val;
+  #{$prop}-right: $val;
+}
+
+@mixin property-y($prop, $val) {
+  #{$prop}-left: $val;
+  #{$prop}-right: $val;
+}

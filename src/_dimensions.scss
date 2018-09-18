@@ -1,4 +1,4 @@
-$props: (
+$dimensions-props: (
   w: width,
   h: height
 );
@@ -10,7 +10,7 @@ $dimensions: (
 );
 
 @each $d-key, $d-val in $dimensions {
-  @each $p-key, $p-val in $props {
+  @each $p-key, $p-val in $dimensions-props {
     .#{$p-key}-#{$d-key} {
       #{$p-val}: $d-val;
     }
@@ -27,7 +27,7 @@ $dimensions: (
   @include min-width($b-val) {
     .#{$b-key}\: {
       @each $d-key, $d-val in $dimensions {
-        @each $p-key, $p-val in $props {
+        @each $p-key, $p-val in $dimensions-props {
           &#{$p-key}-#{$d-key} {
             #{$p-val}: $d-val;
           }

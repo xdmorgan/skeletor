@@ -2,6 +2,18 @@
 // Spacing
 // ----------------------------------------------------------------------------
 
+$space-base: 8px; // 🌖
+$space-sizes: (
+  none: 0,
+  quarter: $space-base * 0.25,
+  half: $space-base * 0.5,
+  single: $space-base * 1,
+  spacious: $space-base * 1.5,
+  double: $space-base * 2,
+  triple: $space-base * 3,
+  quad: $space-base * 4
+);
+
 $props: (
   p: padding,
   m: margin

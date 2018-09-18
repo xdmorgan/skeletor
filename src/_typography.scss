@@ -59,12 +59,12 @@ $font-stacks: (
   }
 }
 
-@each $b-key, $b-val in $breakpoints {
-  @include min-width($b-val) {
-    @each $ff-key, $ff-val in $font-stacks {
-      .#{$b-key}\:ff-#{$ff-key} {
-        font-family: $ff-val;
-      }
-    }
-  }
-}
+// @each $b-key, $b-val in $breakpoints {
+//   @include min-width($b-val) {
+//     @each $ff-key, $ff-val in $font-stacks {
+//       .#{$b-key}\:ff-#{$ff-key} {
+//         font-family: $ff-val;
+//       }
+//     }
+//   }
+// }

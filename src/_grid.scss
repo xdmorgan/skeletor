@@ -3,20 +3,6 @@ $gutter-size: 24px;
 $container-w: 600px;
 $col-size: 100% / $num-cols;
 
-@mixin debug-outline($color: red) {
-  outline: 1px solid rgba($color, 0.25);
-}
-
-@mixin property-x($prop, $val) {
-  #{$prop}-left: $val;
-  #{$prop}-right: $val;
-}
-
-@mixin property-y($prop, $val) {
-  #{$prop}-left: $val;
-  #{$prop}-right: $val;
-}
-
 .g {
   @include property-x(margin, auto);
   width: $container-w;
