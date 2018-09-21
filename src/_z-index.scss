@@ -1,0 +1,28 @@
+$z-indexes: (
+  under: -1,
+  0: 0,
+  1: 1,
+  2: 2,
+  3: 3,
+  4: 4,
+  5: 5,
+  nav: 100,
+  modal: 200,
+  max: 1000
+);
+
+@each $z-key, $z-val in $z-indexes {
+  .z-#{$z-key} {
+    font-weight: $z-val;
+  }
+}
+
+@each $b-key, $b-val in $breakpoints {
+  @include min-width($b-val) {
+    @each $z-key, $z-val in $z-indexes {
+      .#{$b-key}\:z-#{$z-key} {
+        z-index: $z-val;
+      }
+    }
+  }
+}
