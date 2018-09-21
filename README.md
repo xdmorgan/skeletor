@@ -7,11 +7,8 @@
 Create responsive classes unless otherwise noted
 
 - [x] Display properties
-- [x] Z-indexes
 - [x] Spacing (padding and margin)
   - With directions: `[ ], x, y, t, r, b, l`
-- [x] Font-families
-  - No need for these to be responsive, probably
 - [x] Dimensions (height & width)
   - full, none, auto values for regular, min, and max properties
 - [ ] Flexbox grid
@@ -22,7 +19,10 @@ Create responsive classes unless otherwise noted
   - [ ] Nesting
   - [ ] General container?
 - [ ] Type styles
-  - Not sure—Type scale? Rem reset?
+  - [x] Font-families
+    - No need for these to be responsive, probably
+  - [x] font-weights
+- [x] Z-indexes
 
 #### Config & CLI (`v0.2`)
 
