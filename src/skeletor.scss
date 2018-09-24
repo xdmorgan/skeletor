@@ -1,8 +1,13 @@
+// base
 @import "config";
 @import "helpers";
-@import "display";
-@import "spacing";
-@import "typography";
-@import "grid";
+
+// utility classes
 @import "dimensions";
+@import "display";
+@import "grid";
+@import "spacing";
+@import "typography/font-family";
+@import "typography/font-weight";
+@import "typography/line-height";
 @import "z-index";

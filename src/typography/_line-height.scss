@@ -1,0 +1,21 @@
+$line-heights: (
+  single: 1,
+  compact: 1.2,
+  spacious: 1.4
+);
+
+@each $lh-key, $lh-val in $line-heights {
+  .lh-#{$lh-key} {
+    line-height: $lh-val;
+  }
+}
+
+@each $b-key, $b-val in $breakpoints {
+  @include min-width($b-val) {
+    @each $lh-key, $lh-val in $line-heights {
+      .#{$b-key}\:lh-#{$lh-key} {
+        line-height: $lh-val;
+      }
+    }
+  }
+}

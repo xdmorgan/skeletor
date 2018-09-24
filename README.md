@@ -22,6 +22,7 @@ Create responsive classes unless otherwise noted
   - [x] Font-families
     - No need for these to be responsive, probably
   - [x] font-weights
+  - [x] line-heights
 - [x] Z-indexes
 
 #### Config & CLI (`v0.2`)
