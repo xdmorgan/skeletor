@@ -4,11 +4,11 @@
 @import "core/helpers";
 
 // utility classes
-@import "dimensions";
-@import "display";
-@import "grid";
-@import "spacing";
-@import "typography/font-family";
-@import "typography/font-weight";
-@import "typography/line-height";
-@import "z-index";
+@import "generator/dimensions";
+@import "generator/display";
+@import "generator/grid";
+@import "generator/spacing";
+@import "generator/font-family";
+@import "generator/font-weight";
+@import "generator/line-height";
+@import "generator/z-index";

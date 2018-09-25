@@ -6,7 +6,16 @@
 $breakpoints: ();
 
 // so, the nulls...
+// misc
+$displays: null;
 $dimensions: null;
+$spacings: null;
+$z-indexes: null;
+// grid
+$grid: null;
+$grid-cols: 12;
+$grid-gutter: 24px;
+// typography
 $font-families: null;
 $font-weights: null;
 $line-heights: null;

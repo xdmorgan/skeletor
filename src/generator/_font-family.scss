@@ -4,10 +4,8 @@ https://css-tricks.com/snippets/css/better-helvetica/
 https://css-tricks.com/snippets/css/font-stacks/
 */
 
-@if $font-families != null {
-  @each $ff-key, $ff-val in $font-families {
-    .ff-#{$ff-key} {
-      font-family: $ff-val;
-    }
+@each $ff-key, $ff-val in $font-families {
+  .ff-#{$ff-key} {
+    font-family: $ff-val;
   }
 }
