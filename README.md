@@ -28,7 +28,7 @@ Create responsive classes unless otherwise noted
 #### Config & CLI (`v0.2`)
 
 - [ ] Examples
-- [ ] Yaml config to Sass vars
+- [ ] YAML config to Sass vars
 
 #### Publish (`v0.3`)
 

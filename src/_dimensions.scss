@@ -1,41 +1,37 @@
-$dimensions-props: (
-  w: width,
-  h: height
-);
+@if $dimensions != null {
+  $dim-props: (
+    w: width,
+    h: height
+  );
 
-$dimensions: (
-  auto: auto,
-  none: none,
-  100: 100%
-);
-
-@each $d-key, $d-val in $dimensions {
-  @each $p-key, $p-val in $dimensions-props {
-    .#{$p-key}-#{$d-key} {
-      #{$p-val}: $d-val;
-    }
-    .#{$p-key}-min-#{$d-key} {
-      min-#{$p-val}: $d-val;
-    }
-    .#{$p-key}-max-#{$d-key} {
-      max-#{$p-val}: $d-val;
+  @each $d-key, $d-val in $dimensions {
+    @each $p-key, $p-val in $dim-props {
+      .#{$p-key}-#{$d-key} {
+        #{$p-val}: $d-val;
+      }
+      .#{$p-key}-min-#{$d-key} {
+        min-#{$p-val}: $d-val;
+      }
+      .#{$p-key}-max-#{$d-key} {
+        max-#{$p-val}: $d-val;
+      }
     }
   }
-}
 
-@each $b-key, $b-val in $breakpoints {
-  @include min-width($b-val) {
-    .#{$b-key}\: {
-      @each $d-key, $d-val in $dimensions {
-        @each $p-key, $p-val in $dimensions-props {
-          &#{$p-key}-#{$d-key} {
-            #{$p-val}: $d-val;
-          }
-          &#{$p-key}-min-#{$d-key} {
-            min-#{$p-val}: $d-val;
-          }
-          &#{$p-key}-max-#{$d-key} {
-            max-#{$p-val}: $d-val;
+  @each $b-key, $b-val in $breakpoints {
+    @include min-width($b-val) {
+      .#{$b-key}\: {
+        @each $d-key, $d-val in $dimensions {
+          @each $p-key, $p-val in $dim-props {
+            &#{$p-key}-#{$d-key} {
+              #{$p-val}: $d-val;
+            }
+            &#{$p-key}-min-#{$d-key} {
+              min-#{$p-val}: $d-val;
+            }
+            &#{$p-key}-max-#{$d-key} {
+              max-#{$p-val}: $d-val;
+            }
           }
         }
       }

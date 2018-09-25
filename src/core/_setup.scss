@@ -1,0 +1,12 @@
+// Initialize customizables as null so we can test if
+// they're not null and include partials accordingly
+
+// ... having said that, breakpoints must always be a
+// map even if empty, as its used globally, unguarded.
+$breakpoints: ();
+
+// so, the nulls...
+$dimensions: null;
+$font-families: null;
+$font-weights: null;
+$line-heights: null;

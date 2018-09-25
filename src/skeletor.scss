@@ -1,6 +1,7 @@
 // base
-@import "config";
-@import "helpers";
+@import "core/setup"; // initialize config vars as null
+@import "core/config"; // customize values
+@import "core/helpers";
 
 // utility classes
 @import "dimensions";
