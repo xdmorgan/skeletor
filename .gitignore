@@ -4,3 +4,4 @@ dist/
 *.css.map
 *.log
 .DS_Store
+.temp
