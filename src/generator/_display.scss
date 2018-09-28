@@ -1,4 +1,4 @@
-@if $displays != null {
+@if map-get($skeletor, displays) != null {
   $property-names: (
     d: display
   );
@@ -11,9 +11,8 @@
       block,
       flex,
       inline-flex,
-      table,
-      table-row,
-      table-cell
+      grid,
+      table
     )
   );
 
@@ -26,7 +25,7 @@
     }
   }
 
-  @each $b-key, $b-val in $breakpoints {
+  @each $b-key, $b-val in map-get($skeletor, breakpoints) {
     @include min-width($b-val) {
       @each $p-key, $p-list in $property-values {
         $p-name: safe-map-get($property-names, $p-key);

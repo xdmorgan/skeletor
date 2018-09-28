@@ -1,0 +1,54 @@
+$skeletor: (
+  breakpoints: (
+    sm: 500px,
+    md: 750px,
+    lg: 1000px,
+    xl: 1250px
+  ),
+  colors: (
+    red: red,
+    blue: #00f,
+    green: #bada55,
+    purple: rebeccapurple
+  ),
+  grid: (
+    cols: 12,
+    gutter: 24px
+  ),
+  dimensions: (
+    100: 100%,
+    auto: auto,
+    none: none,
+    zero: 0
+  ),
+  displays: true,
+  font-families: (
+    system: (-apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol)
+  ),
+  font-weights: (
+    normal: 400,
+    bold: 700
+  ),
+  line-heights: (
+    single: 1,
+    compact: 1.2,
+    spacious: 1.4
+  ),
+  spacings: (
+    none: 0,
+    quarter: 2,
+    half: 4,
+    single: 1,
+    spacious: 12,
+    double: 16,
+    huge: 32
+  ),
+  z-indexes: (
+    0: 0,
+    1: 1,
+    under: -1,
+    nav: 100,
+    modal: 200,
+    max: 1000
+  )
+);

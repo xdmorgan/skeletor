@@ -6,18 +6,6 @@
   @return $val;
 }
 
-@function spacing($key) {
-  @return safe-map-get($space-sizes, $key);
-}
-
-@function to-spacing($factor) {
-  @return $space-base * $factor;
-}
-
-@function breakpoint($key) {
-  @return safe-map-get($breakpoints, $key);
-}
-
 @mixin min-width($size) {
   @media (min-width: $size) {
     @content;

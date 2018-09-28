@@ -1,20 +1,23 @@
-@mixin grid-column($span) {
+@mixin grid-column($size, $span, $gutter) {
   flex: none;
-  margin-left: $grid-gutter;
-  width: calc(#{$col-size * $span} - #{$grid-gutter});
+  margin-left: $gutter;
+  width: calc(#{$size * $span} - #{$gutter});
 }
 
-@mixin grid-offset($span) {
-  margin-left: calc(#{$col-size * $span} + #{$grid-gutter});
+@mixin grid-offset($size, $span, $gutter) {
+  margin-left: calc(#{$size * $span} + #{$gutter});
 }
+
+$grid: map-get($skeletor, "grid");
 
 @if $grid != null {
-  $container-w: 600px;
+  $grid-cols: safe-map-get($grid, "cols");
+  $grid-gutter: safe-map-get($grid, "gutter");
   $col-size: 100% / $grid-cols;
 
   .g {
     @include property-x(margin, auto);
-    width: $container-w;
+    width: 667px; // TODO: implement
     @each $b-key, $b-val in $breakpoints {
       @include min-width($b-val) {
         width: ($b-val - ($grid-gutter * 2));
@@ -37,12 +40,12 @@
     }
     @for $_col-span from 1 to ($grid-cols + 1) {
       &-#{$_col-span} {
-        @include grid-column($_col-span);
+        @include grid-column($col-size, $_col-span, $grid-gutter);
       }
     }
     @for $_col-offset from 1 to $grid-cols {
       &-o-#{$_col-offset} {
-        @include grid-column($_col-offset);
+        @include grid-offset($col-size, $_col-offset, $grid-gutter);
       }
     }
   }
@@ -55,12 +58,12 @@
       }
       @for $_col-span from 1 to ($grid-cols + 1) {
         .#{$b-key}\:gc-#{$_col-span} {
-          @include grid-column($_col-span);
+          @include grid-column($col-size, $_col-span, $grid-gutter);
         }
       }
       @for $_col-offset from 1 to $grid-cols {
         .#{$b-key}\:gc-o-#{$_col-offset} {
-          @include grid-offset($_col-offset);
+          @include grid-offset($col-size, $_col-offset, $grid-gutter);
         }
       }
     }
