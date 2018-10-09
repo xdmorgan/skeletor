@@ -24,6 +24,7 @@ Create responsive classes unless otherwise noted
   - [x] font-weights
   - [x] line-heights
 - [x] Z-indexes
+- [x] Border-radius
 
 #### Config & CLI (`v0.2`)
 
