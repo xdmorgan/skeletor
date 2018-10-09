@@ -6,13 +6,13 @@
   "author": "Dan Morgan",
   "license": "MIT",
   "scripts": {
-    "start": "node-sass-chokidar -w src -o dist --source-map true --output-style compact",
-    "build": "yarn sass:compile && yarn sass:compress",
-    "sass:compile": "node-sass-chokidar src/skeletor.scss dist/skeletor.min.css --source-map true --output-style compressed",
-    "sass:compress": "gzip -k dist/skeletor.min.css",
+    "start": "yarn cli && yarn sass:watch",
+    "build": "yarn cli && yarn lint && yarn sass:compile && yarn sass:compress",
+    "cli": "node cli",
     "lint": "stylelint 'src/**/*.scss'",
-    "config:yaml-json": "yaml2json config.yml --pretty --save",
-    "config:json-sass": "json-sass -i config.json -o config.scss -p \"\\$skeletor: \""
+    "sass:watch": "node-sass-chokidar -w src -o dist --source-map true --output-style compact",
+    "sass:compile": "node-sass-chokidar src/skeletor.scss dist/skeletor.min.css --source-map true --output-style compressed",
+    "sass:compress": "gzip -k dist/skeletor.min.css"
   },
   "devDependencies": {
     "node-sass": "^4.9.3",
