@@ -14,4 +14,5 @@ const jsonToSass = require("json-sass");
   fs.createReadStream(tempJson)
     .pipe(jsonToSass({ prefix: "$skeletor: " }))
     .pipe(fs.createWriteStream(destSass));
+  // await fs.remove(tempDir);
 })();
