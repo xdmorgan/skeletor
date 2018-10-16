@@ -14,6 +14,12 @@ grid:
   cols: 12
   gutter: 24px
 
+container:
+  sm: 400px
+  md: 600px
+  lg: 800px
+  xl: 1000px
+
 dimensions:
   auto: auto
   none: none
@@ -46,12 +52,14 @@ line-heights:
 
 spacings:
   none: 0
-  quarter: 2
-  half: 4
-  single: 1
-  spacious: 12
-  double: 16
-  huge: 32
+  quarter: 2px
+  half: 4px
+  single: 8px
+  spacious: 12px
+  double: 16px
+  triple: 24px
+  quad: 32px
+  square: 64px
 
 z-indexes:
   under: -1
