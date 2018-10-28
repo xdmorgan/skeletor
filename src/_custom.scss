@@ -16,10 +16,13 @@ $skeletor: (
     gutter: 24px
   ),
   container: (
-    sm: 400px,
-    md: 600px,
-    lg: 800px,
-    xl: 1000px
+    inset: 24px,
+    max: (
+      sm: 400px,
+      md: 600px,
+      lg: 800px,
+      xl: 1000px
+    )
   ),
   dimensions: (
     100: 100%,

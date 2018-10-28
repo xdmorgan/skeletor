@@ -23,3 +23,13 @@
 @include generator(fw, font-weight, map-get($skeletor, font-weights));
 @include generator(z, z-index, map-get($skeletor, z-indexes));
 @include generator(rc, border-radius, map-get($skeletor, rounded-corners));
+@include generator(flex, flex, ( 0: none, 1: 1 ));
+@include generator(flx-d, flex-direction, ( r: row, rr: row-reverse, c: column, cr: column-reverse ));
+@include generator(flx-a, align-items, 
+  ( fs: flex-start, fe: flex-end, c: center, s: stretch )
+);
+@include generator(flx-j, justify-content, 
+  ( fs: flex-start, fe: flex-end, c: center, s: stretch, sa: space-around, sb: space-between )
+);
+@include generator(float, float, ( l: left, r: right, 0: none ));
+@include generator(txt-a, text-align, ( l: left, r: right, 0: none, c: center, j: justify ));

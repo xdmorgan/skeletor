@@ -1,0 +1,30 @@
+
+@mixin container-width($target, $inset) {
+  width: ($target * ($inset * 2));
+}
+
+@mixin max-container-width($target, $inset) {
+  max-width: ($target * ($inset * 2));
+}
+
+$container: map-get($skeletor, "container");
+
+@if $container != null {
+  .container {
+    width: 100%;
+    @include property-x(margin, auto);
+    @include property-x(padding, safe-map-get($container, inset));
+
+    $container-maxes: map-get($container, max);
+    @if $container-maxes != null {
+      @each $b-key, $b-val in map-get($map: $skeletor, $key: breakpoints) {
+        $max: map-get($container-maxes, $b-key);
+        @if $max != null {
+          @include min-width($b-val) {
+              max-width: $max;
+          }
+        }
+      }
+    }
+  }
+}

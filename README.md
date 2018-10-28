@@ -16,13 +16,15 @@ Create responsive classes unless otherwise noted
   - [x] Grid row
   - [x] Grid column
   - [x] Grid offset
-  - [ ] Nesting
-  - [ ] General container?
+  - [x] Flex utils
+    - flex, direction, align, justify
+  - [ ] container
 - [ ] Type styles
   - [x] Font-families
     - No need for these to be responsive, probably
   - [x] font-weights
   - [x] line-heights
+  - [x] text-align
 - [x] Z-indexes
 - [x] Border-radius
 
