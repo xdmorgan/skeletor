@@ -3,8 +3,12 @@
   width: ($target * ($inset * 2));
 }
 
-@mixin max-container-width($target, $inset) {
-  max-width: ($target * ($inset * 2));
+@mixin max-container-width($target, $inset: 0) {
+  max-width: ($target + ($inset * 2));
+}
+
+@mixin container-inset($inset: 0) {
+  @include property-x(padding, $inset);
 }
 
 $container: map-get($skeletor, "container");
@@ -13,7 +17,8 @@ $container: map-get($skeletor, "container");
   .container {
     width: 100%;
     @include property-x(margin, auto);
-    @include property-x(padding, safe-map-get($container, inset));
+    $c-inset: map-get($container, inset);
+    @include container-inset($c-inset);
 
     $container-maxes: map-get($container, max);
     @if $container-maxes != null {
@@ -21,7 +26,7 @@ $container: map-get($skeletor, "container");
         $max: map-get($container-maxes, $b-key);
         @if $max != null {
           @include min-width($b-val) {
-              max-width: $max;
+            @include max-container-width($max, $c-inset);
           }
         }
       }
