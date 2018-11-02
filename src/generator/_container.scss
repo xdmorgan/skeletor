@@ -3,6 +3,9 @@
   width: ($target * ($inset * 2));
 }
 
+@mixin min-container-width($target, $inset: 0) {
+  min-width: ($target + ($inset * 2));
+}
 @mixin max-container-width($target, $inset: 0) {
   max-width: ($target + ($inset * 2));
 }
@@ -17,16 +20,29 @@ $container: map-get($skeletor, "container");
   .container {
     width: 100%;
     @include property-x(margin, auto);
-    $c-inset: map-get($container, inset);
-    @include container-inset($c-inset);
+    
+    $c-initial: safe-map-get($container, initial);
+    $c-initial-inset: map-get($c-initial, inset);
+    $c-initial-min: map-get($c-initial, min);
+    $c-initial-max: map-get($c-initial, max);
+    
+    @include container-inset($c-initial-inset);
+    @if $c-initial-min != null {
+      @include min-container-width($c-initial-min, $c-initial-inset);
+    }
+    @if $c-initial-max != null {
+      @include max-container-width($c-initial-max, $c-initial-inset);
+    }
 
-    $container-maxes: map-get($container, max);
-    @if $container-maxes != null {
-      @each $b-key, $b-val in map-get($map: $skeletor, $key: breakpoints) {
-        $max: map-get($container-maxes, $b-key);
-        @if $max != null {
+    @each $b-key, $b-val in map-get($map: $skeletor, $key: breakpoints) {
+      $break: map-get($container, $b-key);
+      @if $break != null {
+        $max: safe-map-get($break, max);
+        $inset: safe-map-get($break, inset);
+        @if $max != null or $inset != null {
           @include min-width($b-val) {
-            @include max-container-width($max, $c-inset);
+            @include container-inset($inset);
+            @include max-container-width($max, $inset);
           }
         }
       }
