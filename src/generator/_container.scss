@@ -19,6 +19,7 @@ $container: map-get($skeletor, "container");
 @if $container != null {
   .container {
     width: 100%;
+    box-sizing:border-box;
     @include property-x(margin, auto);
     
     $c-initial: safe-map-get($container, initial);

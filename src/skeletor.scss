@@ -4,6 +4,13 @@
 @import "custom"; // generated from config file
 
 // utility classes
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+@import "generator/normalize";
 @import "generator/single-properties";
 @import "generator/dimensions";
 @import "generator/display";
