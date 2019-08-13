@@ -1,10 +1,21 @@
 {
-  "name": "skeletor",
-  "version": "0.0.1",
+  "name": "@skeletor/css",
+  "version": "0.1.1",
+  "description": "CSS generator",
   "main": "index.js",
-  "repository": "https://github.com/xdmorgan/skeletor.git",
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xdmorgan/skeletor.git"
+  },
   "author": "Dan Morgan",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xdmorgan/skeletor/issues"
+  },
+  "homepage": "https://github.com/xdmorgan/skeletor#readme",
   "scripts": {
     "start": "yarn cli && yarn sass:watch",
     "build": "yarn cli && yarn lint && yarn sass:compile && yarn sass:compress",
@@ -12,7 +23,8 @@
     "lint": "stylelint 'src/**/*.scss'",
     "sass:watch": "node-sass-chokidar -w src -o dist --source-map true --output-style compact",
     "sass:compile": "node-sass-chokidar src/skeletor.scss dist/skeletor.css --source-map true --output-style compact",
-    "sass:compress": "node-sass-chokidar src/skeletor.scss dist/skeletor.min.css --source-map true --output-style compressed && gzip -k dist/skeletor.min.css"
+    "sass:compress": "node-sass-chokidar src/skeletor.scss dist/skeletor.min.css --source-map true --output-style compressed && gzip -k dist/skeletor.min.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
     "node-sass": "^4.9.3",
