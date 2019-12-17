@@ -23,7 +23,6 @@ container:
 dimensions:
   auto: auto
   none: none
-  zero: 0
   fill: 100%
 
 displays: true
@@ -52,7 +51,7 @@ line-heights:
   spacious: 1.4
 
 spacings:
-  zero: 0
+  0: 0
   quarter: 2px
   half: 4px
   single: 8px
