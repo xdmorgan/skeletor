@@ -1,9 +1,10 @@
 $skeletor: (
   breakpoints: (
-    sm: 500px,
-    md: 750px,
-    lg: 1000px,
-    xl: 1250px
+    sm: 420px,
+    md: 768px,
+    lg: 1024px,
+    xl: 1280px,
+    hd: 1440px
   ),
   colors: (
     red: red,
@@ -16,19 +17,16 @@ $skeletor: (
     gutter: 24px
   ),
   container: (
-    inset: 24px,
-    max: (
-      sm: 400px,
-      md: 600px,
-      lg: 800px,
-      xl: 1000px
+    initial: (
+      min: 320px,
+      inset: 24px
     )
   ),
   dimensions: (
-    100: 100%,
     auto: auto,
     none: none,
-    zero: 0
+    zero: 0,
+    fill: 100%
   ),
   displays: true,
   font-families: (
@@ -36,15 +34,16 @@ $skeletor: (
   ),
   font-weights: (
     normal: 400,
+    medium: 500,
     bold: 700
   ),
   line-heights: (
-    single: 1,
-    compact: 1.2,
+    compact: 1,
+    default: 1.2,
     spacious: 1.4
   ),
   spacings: (
-    none: 0,
+    zero: 0,
     quarter: 2px,
     half: 4px,
     single: 8px,
@@ -55,16 +54,15 @@ $skeletor: (
     square: 64px
   ),
   z-indexes: (
-    0: 0,
-    1: 1,
     under: -1,
+    over: 1,
     nav: 100,
     modal: 200,
-    max: 1000
+    orbit: 1000
   ),
   rounded-corners: (
     small: 2px,
-    pill: 100px,
+    pill: 999px,
     round: 50%
   )
 );
