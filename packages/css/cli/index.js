@@ -61,16 +61,17 @@ async function main({ config = "skeletor.yml" } = {}) {
   });
 
   const opts = { stdio: "inherit", cwd: local };
-  writeSassIndexByName("skeletor.all", opts);
-  // writeSassIndexByName("vars", opts); // TODO: CSS vars
+  writeSassIndexByName("skeletor", opts);
   writeSassIndexByName("skeletor.grid", opts);
   writeSassIndexByName("skeletor.utilities", opts);
+  writeSassIndexByName("skeletor.vars", opts);
 
   await fs.remove(path.join(destDir, "sass/grid"));
   await fs.remove(path.join(destDir, "sass/utilities"));
-  await fs.remove(path.join(destDir, "sass/skeletor.all.scss"));
+  await fs.remove(path.join(destDir, "sass/skeletor.scss"));
   await fs.remove(path.join(destDir, "sass/skeletor.grid.scss"));
   await fs.remove(path.join(destDir, "sass/skeletor.utilities.scss"));
+  await fs.remove(path.join(destDir, "sass/skeletor.vars.scss"));
 
   await fs.copy(destDir, path.join(cwd, "public/dist"));
 }

@@ -20,13 +20,14 @@
   },
   "homepage": "https://github.com/xdmorgan/skeletor#readme",
   "scripts": {
-    "start": "yarn cli && yarn sass:watch",
-    "build": "yarn cli && yarn lint && yarn sass:compile && yarn sass:compress",
+    "clean": "rimraf ./dist",
+    "start": "yarn clean && yarn sass:watch",
+    "build": "yarn clean && yarn lint && yarn sass:compile && yarn sass:compress",
     "cli": "node cli",
     "lint": "stylelint 'src/**/*.scss'",
-    "sass:watch": "node-sass-chokidar -w src -o public/dist --source-map true --output-style compact",
-    "sass:compile": "node-sass-chokidar src/skeletor.scss public/dist/skeletor.css --source-map true --output-style compact",
-    "sass:compress": "node-sass-chokidar src/skeletor.scss public/dist/skeletor.min.css --source-map true --output-style compressed && gzip -k public/dist/skeletor.min.css",
+    "sass:watch": "node-sass-chokidar -w src -o dist --source-map true --output-style compact",
+    "sass:compile": "node-sass-chokidar src/skeletor.scss dist/skeletor.css --source-map true --output-style compact",
+    "sass:compress": "node-sass-chokidar src/skeletor.scss dist/skeletor.min.css --source-map true --output-style compressed && gzip -k dist/skeletor.min.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
