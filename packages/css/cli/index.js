@@ -66,6 +66,12 @@ async function main({ config = "skeletor.yml" } = {}) {
   writeSassIndexByName("skeletor.grid", opts);
   writeSassIndexByName("skeletor.utilities", opts);
 
+  await fs.remove(path.join(destDir, "sass/grid"));
+  await fs.remove(path.join(destDir, "sass/utilities"));
+  await fs.remove(path.join(destDir, "sass/skeletor.all.scss"));
+  await fs.remove(path.join(destDir, "sass/skeletor.grid.scss"));
+  await fs.remove(path.join(destDir, "sass/skeletor.utilities.scss"));
+
   await fs.copy(destDir, path.join(cwd, "public/dist"));
 }
 
