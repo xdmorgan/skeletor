@@ -1,3 +1,3 @@
-# @skeletor/demo
+# @skeletor/site
 
 Soon
