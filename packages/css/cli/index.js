@@ -5,6 +5,37 @@ const yamlToJson = require("yamljs");
 const jsonToSass = require("json-sass");
 const spawn = require("cross-spawn");
 
+function writeSassIndexByName(name, opts) {
+  spawn.sync(
+    "yarn",
+    [
+      "node-sass-chokidar",
+      `./dist/sass/${name}.scss`,
+      `./dist/${name}.css`,
+      "--source-map",
+      "true",
+      "--output-style",
+      "compact"
+    ],
+    opts
+  );
+  spawn.sync(
+    "yarn",
+    [
+      "node-sass-chokidar",
+      `./dist/sass/${name}.scss`,
+      `./dist/${name}.min.css`,
+      "--source-map",
+      "true",
+      "--output-style",
+      "compressed"
+    ],
+    opts
+  );
+  spawn.sync("gzip", ["-k", `./dist/${name}.css`], opts);
+  spawn.sync("gzip", ["-k", `./dist/${name}.min.css`], opts);
+}
+
 async function main({ config = "skeletor.yml" } = {}) {
   const cwd = process.cwd();
   const local = path.join(__dirname, "..");
@@ -29,35 +60,11 @@ async function main({ config = "skeletor.yml" } = {}) {
       .on("finish", resolve);
   });
 
-  const spawnopts = { stdio: "inherit", cwd: local };
-  spawn.sync(
-    "yarn",
-    [
-      "node-sass-chokidar",
-      "./dist/sass/skeletor.scss",
-      "./dist/skeletor.css",
-      "--source-map",
-      "true",
-      "--output-style",
-      "compact"
-    ],
-    spawnopts
-  );
-  spawn.sync(
-    "yarn",
-    [
-      "node-sass-chokidar",
-      "./dist/sass/skeletor.scss",
-      "./dist/skeletor.min.css",
-      "--source-map",
-      "true",
-      "--output-style",
-      "compressed"
-    ],
-    spawnopts
-  );
-  spawn.sync("gzip", ["-k", "./dist/skeletor.css"], spawnopts);
-  spawn.sync("gzip", ["-k", "./dist/skeletor.min.css"], spawnopts);
+  const opts = { stdio: "inherit", cwd: local };
+  writeSassIndexByName("all", opts);
+  // writeSassIndexByName("vars", opts); // TODO: CSS vars
+  writeSassIndexByName("grid", opts);
+  writeSassIndexByName("utilities", opts);
 
   await fs.copy(destDir, path.join(cwd, "public/dist"));
 }
