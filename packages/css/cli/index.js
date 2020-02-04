@@ -61,10 +61,10 @@ async function main({ config = "skeletor.yml" } = {}) {
   });
 
   const opts = { stdio: "inherit", cwd: local };
-  writeSassIndexByName("all", opts);
+  writeSassIndexByName("skeletor.all", opts);
   // writeSassIndexByName("vars", opts); // TODO: CSS vars
-  writeSassIndexByName("grid", opts);
-  writeSassIndexByName("utilities", opts);
+  writeSassIndexByName("skeletor.grid", opts);
+  writeSassIndexByName("skeletor.utilities", opts);
 
   await fs.copy(destDir, path.join(cwd, "public/dist"));
 }
