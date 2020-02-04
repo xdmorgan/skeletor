@@ -10,7 +10,9 @@ $skeletor: (
     red: red,
     blue: #00f,
     green: #bada55,
-    purple: rebeccapurple
+    purple: rebeccapurple,
+    white: white,
+    black: #000
   ),
   grid: (
     cols: 12,
@@ -29,7 +31,18 @@ $skeletor: (
   ),
   displays: true,
   font-families: (
-    system: (-apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol)
+    system: (
+      -apple-system,
+      system-ui,
+      BlinkMacSystemFont,
+      Segoe UI,
+      Helvetica,
+      Arial,
+      sans-serif,
+      Apple Color Emoji,
+      Segoe UI Emoji,
+      Segoe UI Symbol
+    )
   ),
   font-weights: (
     normal: 400,

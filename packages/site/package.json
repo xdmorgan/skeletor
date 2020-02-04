@@ -1,0 +1,30 @@
+{
+  "name": "@skeletor/site",
+  "version": "0.2.0",
+  "description": "CSS generator",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xdmorgan/skeletor.git"
+  },
+  "author": "Dan Morgan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xdmorgan/skeletor/issues"
+  },
+  "homepage": "https://github.com/xdmorgan/skeletor#readme",
+  "scripts": {
+    "build": "yarn skeletor",
+    "start": "echo \"Soon\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve:build": "http-server ./public --gzip -o prod.html",
+    "serve:dev": "http-server ./public",
+    "preview": "yarn build && yarn serve:build"
+  },
+  "devDependencies": {
+    "http-server": "^0.12.0",
+    "rimraf": "^3.0.0"
+  },
+  "dependencies": {
+    "@skeletor/css": "^0.2.0"
+  }
+}
