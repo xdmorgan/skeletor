@@ -1,3 +1,5 @@
-# Skeletor
+# @skeletor Monorepo
 
-WIP. See [./packages/css/README.md](./packages/css/README.md)
+## Package Documentation
+
+- [`@skeletor/css`](./packages/css/README.md)
