@@ -26,11 +26,12 @@ Options
   --no-sourcemap   Disable output of sourcemaps
 
 Examples
-  $ skeletor --config styles/base.yml --output public --gzip --no-sass
+  $ yarn skeletor --config styles/base.yml --output public --gzip --no-sass
+  $ npm run skeletor [options]
 ```
 
 ## Documentation
 
-- [Config structure](./docs/index.md)
-- [Generated proerty and class reference](./docs/index.md)
-- [Generated file structure](./docs/index.md)
+- [Config structure](https://github.com/xdmorgan/skeletor/tree/master/packages/css/docs/index.md)
+- [Generated proerty and class reference](https://github.com/xdmorgan/skeletor/tree/master/packages/css/docs/index.md)
+- [Generated file structure](https://github.com/xdmorgan/skeletor/tree/master/packages/css/docs/index.md)
