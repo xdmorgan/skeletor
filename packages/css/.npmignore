@@ -6,4 +6,5 @@ dist/
 .DS_Store
 .temp
 .npmrc
-
+config.yml
+.stylelintrc

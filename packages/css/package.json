@@ -1,6 +1,6 @@
 {
   "name": "@skeletor/css",
-  "version": "0.2.1",
+  "version": "0.2.3",
   "description": "CSS generator",
   "main": "index.js",
   "directories": {
@@ -28,7 +28,7 @@
     "sass:watch": "node-sass-chokidar -w src -o dist --source-map true --output-style compact",
     "sass:compile": "node-sass-chokidar src/skeletor.scss dist/skeletor.css --source-map true --output-style compact",
     "sass:compress": "node-sass-chokidar src/skeletor.scss dist/skeletor.min.css --source-map true --output-style compressed && gzip -k dist/skeletor.min.css",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Success: no test specified\" && exit 0"
   },
   "devDependencies": {
     "node-sass": "^4.9.3",
