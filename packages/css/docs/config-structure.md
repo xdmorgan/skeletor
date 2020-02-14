@@ -6,19 +6,23 @@ In order to generate styles, a valid yaml config file needs to be provided. By d
 
 ### Minimum viable config
 
-It is intended that no config is necessary. That said, everything is opt-in so an empty config file should yield an empty library build.
+Although a config file is necessary, it is intended that no individual field is required. That said, with everything opt-in, an empty config file would yield an empty library build.
 
 ```yml
+# skeletor.yml
 # not a lot going on in this config
 ```
 
-In most cases, a subset of the kitchen sink example shown below will be desired.
-
 ### Kitchen Sink Example
 
+In most cases, a subset of the fields below would be sufficient
+
 ```yml
-# Define 5 breakpoints which will prefix all
-# responsive properties
+# skeletor.yml
+
+# Define breakpoints names and their media query
+# min-widths. These will prefix all other
+# responsive properties so use sparingly
 breakpoints:
   sm: 420px
   md: 768px
