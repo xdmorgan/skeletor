@@ -9,5 +9,8 @@
 :root {
   @include to-css-vars(color, map-get($skeletor, colors));
   @include to-css-vars(breakpoint, map-get($skeletor, breakpoints));
-  @include to-css-vars(spacing, map-get($skeletor, spacings));
+  @include to-css-vars(space, map-get($skeletor, spacings));
+  @include to-css-vars(font, map-get($skeletor, font-families));
+  @include to-css-vars(z, map-get($skeletor, z-indexes));
+  @include to-css-vars(radius, map-get($skeletor, rounded-corners));
 }
