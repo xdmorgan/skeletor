@@ -4,3 +4,17 @@
 *:after {
   box-sizing: inherit;
 }
+
+.antialias {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@each $break-key, $break-val in map-get($skeletor, breakpoints) {
+  @include min-width($break-val) {
+    .#{$break-key}\:antialias {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  }
+}
