@@ -13,5 +13,5 @@
   @include to-css-vars(font, map-get($skeletor, font-families));
   @include to-css-vars(z, map-get($skeletor, z-indexes));
   @include to-css-vars(radius, map-get($skeletor, rounded-corners));
-  @include to-css-vars(line-height, map-get($skeletor, line-height));
+  @include to-css-vars(line-height, map-get($skeletor, line-heights));
 }
