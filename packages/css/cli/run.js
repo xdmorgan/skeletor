@@ -70,6 +70,7 @@ async function main({ config, output, gzip, minify, sourcemap, sass } = {}) {
   if (sass) {
     // if we're copying over the Sass directory to cwd, we need to clean
     // up the non-core stuff which would produce duplicated rules
+    await fs.remove(path.join(destDir, "sass/custom-properties"));
     await fs.remove(path.join(destDir, "sass/grid"));
     await fs.remove(path.join(destDir, "sass/utilities"));
     await fs.remove(path.join(destDir, "sass/skeletor.scss"));
