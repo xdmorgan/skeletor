@@ -10,7 +10,7 @@ function writeSassIndexByName(name, opts) {
   const dest = `./dist/sass/${name}.scss`;
   const maps = ["--source-map", String(opts.flags.sourcemap)];
   const compact = ["--output-style", "compact"];
-  const compressed = ["--output-style", "compact"];
+  const compressed = ["--output-style", "compressed"];
   spawn.sync(
     "yarn",
     [cmd, dest, `./dist/${name}.css`, ...maps, ...compact],
