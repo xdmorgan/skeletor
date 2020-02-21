@@ -63,8 +63,6 @@ async function main({ config, output, gzip, minify, sourcemap, sass } = {}) {
   };
 
   writeSassIndexByName("skeletor", opts);
-  writeSassIndexByName("skeletor.grid", opts);
-  writeSassIndexByName("skeletor.utilities", opts);
   writeSassIndexByName("skeletor.vars", opts);
 
   if (sass) {
@@ -74,8 +72,6 @@ async function main({ config, output, gzip, minify, sourcemap, sass } = {}) {
     await fs.remove(path.join(destDir, "sass/grid"));
     await fs.remove(path.join(destDir, "sass/utilities"));
     await fs.remove(path.join(destDir, "sass/skeletor.scss"));
-    await fs.remove(path.join(destDir, "sass/skeletor.grid.scss"));
-    await fs.remove(path.join(destDir, "sass/skeletor.utilities.scss"));
     await fs.remove(path.join(destDir, "sass/skeletor.vars.scss"));
   } else {
     // else kill it
