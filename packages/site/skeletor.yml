@@ -1,3 +1,6 @@
+displays: true
+flex: true
+
 breakpoints:
   sm: 420px
   md: 768px
@@ -26,8 +29,6 @@ dimensions:
   auto: auto
   none: none
   fill: 100%
-
-displays: true
 
 font-families:
   system:

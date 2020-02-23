@@ -1,21 +1,3 @@
-@mixin generator($prefix, $property, $map) {
-  @each $key, $val in $map {
-    .#{$prefix}-#{$key} {
-      #{$property}: $val;
-    }
-  }
-
-  @each $break-key, $break-val in map-get($skeletor, breakpoints) {
-    @include min-width($break-val) {
-      @each $key, $val in $map {
-        .#{$break-key}\:#{$prefix}-#{$key} {
-          #{$property}: $val;
-        }
-      }
-    }
-  }
-}
-
 @include generator(bg, background-color, map-get($skeletor, colors));
 @include generator(c, color, map-get($skeletor, colors));
 @include generator(lh, line-height, map-get($skeletor, line-heights));
@@ -23,46 +5,6 @@
 @include generator(fw, font-weight, map-get($skeletor, font-weights));
 @include generator(z, z-index, map-get($skeletor, z-indexes));
 @include generator(rad, border-radius, map-get($skeletor, rounded-corners));
-@include generator(
-  flx,
-  flex,
-  (
-    0: none,
-    1: 1
-  )
-);
-@include generator(
-  flx-d,
-  flex-direction,
-  (
-    r: row,
-    rr: row-reverse,
-    c: column,
-    cr: column-reverse
-  )
-);
-@include generator(
-  flx-a,
-  align-items,
-  (
-    fs: flex-start,
-    fe: flex-end,
-    c: center,
-    s: stretch
-  )
-);
-@include generator(
-  flx-j,
-  justify-content,
-  (
-    fs: flex-start,
-    fe: flex-end,
-    c: center,
-    s: stretch,
-    sa: space-around,
-    sb: space-between
-  )
-);
 @include generator(
   float,
   float,
