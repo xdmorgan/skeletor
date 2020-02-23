@@ -17,7 +17,7 @@ $grid: map-get($skeletor, "grid");
 
   .g {
     @include property-x(margin, auto);
-    @each $b-key, $b-val in $breakpoints {
+    @each $b-key, $b-val in map-get($map: $skeletor, $key: breakpoints) {
       @include min-width($b-val) {
         width: ($b-val - ($grid-gutter * 2));
       }
