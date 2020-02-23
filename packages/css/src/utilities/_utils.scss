@@ -37,20 +37,16 @@
 
 // TY bootstrap
 // https://github.com/twbs/bootstrap/blob/master/scss/helpers/_screenreaders.scss
-.sr-only {
+.sr-only,
+.sr-focus:not(:focus) {
   @include sr-only;
-}
-.sr-focus {
-  @include sr-focus;
 }
 
 @each $break-key, $break-val in map-get($skeletor, breakpoints) {
   @include min-width($break-val) {
-    .#{$break-key}\:sr-only {
+    .#{$break-key}\:sr-only,
+    .#{$break-key}\:sr-focus:not(:focus) {
       @include sr-only;
-    }
-    .#{$break-key}\:sr-focus {
-      @include sr-focus;
     }
   }
 }
