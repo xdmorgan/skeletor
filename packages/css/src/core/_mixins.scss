@@ -1,3 +1,21 @@
+@mixin generator($prefix, $property, $map) {
+  @each $key, $val in $map {
+    .#{$prefix}-#{$key} {
+      #{$property}: $val;
+    }
+  }
+
+  @each $break-key, $break-val in map-get($skeletor, breakpoints) {
+    @include min-width($break-val) {
+      @each $key, $val in $map {
+        .#{$break-key}\:#{$prefix}-#{$key} {
+          #{$property}: $val;
+        }
+      }
+    }
+  }
+}
+
 @mixin border($color: currentColor, $dir: null, $size: 1px, $style: solid) {
   @if $dir {
     border-#{$dir}: $size $style $color;
