@@ -4,7 +4,7 @@
 @include generator(ff, font-family, map-get($skeletor, font-families));
 @include generator(fw, font-weight, map-get($skeletor, font-weights));
 @include generator(z, z-index, map-get($skeletor, z-indexes));
-@include generator(rad, border-radius, map-get($skeletor, rounded-corners));
+@include generator(rc, border-radius, map-get($skeletor, rounded-corners));
 @include generator(
   float,
   float,
