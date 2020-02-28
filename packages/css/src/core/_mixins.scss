@@ -47,8 +47,8 @@
 }
 
 @mixin property-y($prop, $val) {
-  #{$prop}-left: $val;
-  #{$prop}-right: $val;
+  #{$prop}-top: $val;
+  #{$prop}-bottom: $val;
 }
 
 @mixin flex-center {
