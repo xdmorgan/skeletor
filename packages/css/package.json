@@ -1,6 +1,6 @@
 {
   "name": "@skeletor/css",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "description": "CSS generator",
   "main": "index.js",
   "directories": {
@@ -25,9 +25,9 @@
     "build": "yarn clean && yarn lint && yarn sass:compile && yarn sass:compress",
     "cli": "node cli",
     "lint": "stylelint 'src/**/*.scss'",
-    "sass:watch": "node-sass-chokidar -w src -o dist --source-map true --output-style compact",
-    "sass:compile": "node-sass-chokidar src/skeletor.scss dist/skeletor.css --source-map true --output-style compact",
-    "sass:compress": "node-sass-chokidar src/skeletor.scss dist/skeletor.min.css --source-map true --output-style compressed && gzip -k dist/skeletor.min.css",
+    "sass:watch": "node-sass -w src -o dist --source-map true --output-style compact",
+    "sass:compile": "node-sass src/skeletor.scss dist/skeletor.css --source-map true --output-style compact",
+    "sass:compress": "node-sass src/skeletor.scss dist/skeletor.min.css --source-map true --output-style compressed && gzip -k dist/skeletor.min.css",
     "test": "echo \"Success: no test specified\" && exit 0"
   },
   "devDependencies": {
@@ -37,7 +37,6 @@
   },
   "dependencies": {
     "node-sass": "^4.9.3",
-    "node-sass-chokidar": "^1.4.0",
     "rimraf": "^3.0.0",
     "cross-spawn": "^7.0.1",
     "fs-extra": "^8.1.0",
