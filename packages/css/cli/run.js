@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 const fs = require("fs-extra");
 const path = require("path");
-const yamlToJson = require("yamljs");
-const jsonToSass = require("json-sass");
+const yaml = require("yaml");
 const sass = require("node-sass");
+const spawn = require("cross-spawn");
 
 async function writeSassIndexByName(name, opts) {
   const src = path.join(__dirname, `../temp/sass/${name}.scss`);
@@ -17,7 +17,7 @@ async function writeSassIndexByName(name, opts) {
   });
   await fs.writeFile(dest, result.css);
   // if (opts.flags.gzip) {
-  //   spawn.sync("gzip", ["-k", `./temp/${name}.css`], opts.std);
+  // spawn.sync("gzip", ["-k", `./temp/${name}.css`], opts.std);
   // }
 
   // if (opts.flags.minify) {
@@ -39,24 +39,26 @@ async function main({ config, output, gzip, minify, sourcemap, sass } = {}) {
   const paths = {
     config: path.join(cwd, config),
   };
-  const asJsonObject = yamlToJson.load(paths.config);
+  const asYamlString = await fs.readFile(paths.config, "utf8");
+  const asJsonObject = yaml.parse(asYamlString);
   const asJsonString = JSON.stringify(asJsonObject, undefined, 2);
+
   const srcDir = path.join(local, "src");
   const destDir = path.join(local, "temp");
   const srcSassDir = path.join(srcDir, "sass");
   const destSassDir = path.join(destDir, "sass");
   const tempJson = path.join(destDir, "config.json");
   const sassConfig = path.join(destSassDir, "_config.scss");
+
   await fs.remove(destDir);
   await fs.copy(srcSassDir, destSassDir);
   await fs.writeFile(tempJson, asJsonString);
 
-  await new Promise((resolve) => {
-    fs.createReadStream(tempJson)
-      .pipe(jsonToSass({ prefix: "$skeletor: " }))
-      .pipe(fs.createWriteStream(sassConfig))
-      .on("finish", resolve);
-  });
+  spawn.sync("./node_modules/.bin/json-to-scss", [
+    tempJson,
+    sassConfig,
+    '--p="$skeletor: "',
+  ]);
 
   const opts = {
     flags: { gzip, minify, sourcemap },
