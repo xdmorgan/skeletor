@@ -1,9 +1,9 @@
-const path = require("path");
-const { parse } = require("./parse-config");
+const path = require('path')
+const { parse } = require('./parse-config')
 
-describe("Load and parse yml config as json", () => {
-  test("Read sample config", async () => {
-    const file = path.join(__dirname, "../config.yml");
+describe('Load and parse yml config as json', () => {
+  test('Read sample config', async () => {
+    const file = path.join(__dirname, '../config.yml')
     expect(await parse(file)).toMatchInlineSnapshot(`
       Object {
         "breakpoints": Object {
@@ -79,6 +79,6 @@ describe("Load and parse yml config as json", () => {
           "under": -1,
         },
       }
-    `);
-  });
-});
+    `)
+  })
+})
