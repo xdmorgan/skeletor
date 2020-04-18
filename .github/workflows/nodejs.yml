@@ -23,7 +23,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: cd packages/css
-      - run: yarn test
+      - run: yarn workspace @skeletor/css test
         env:
           CI: true
