@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 const fs = require("fs-extra");
 const path = require("path");
-const yaml = require("yaml");
 const sass = require("node-sass");
 const spawn = require("cross-spawn");
+const { parse } = require("./parse-config");
 
 async function writeSassIndexByName(name, opts) {
   const src = path.join(__dirname, `../temp/sass/${name}.scss`);
@@ -39,9 +39,10 @@ async function main({ config, output, gzip, minify, sourcemap, sass } = {}) {
   const paths = {
     config: path.join(cwd, config),
   };
-  const asYamlString = await fs.readFile(paths.config, "utf8");
-  const asJsonObject = yaml.parse(asYamlString);
-  const asJsonString = JSON.stringify(asJsonObject, undefined, 2);
+
+  // parse config file
+  const parsed = await parse(paths.config);
+  const asJsonString = JSON.stringify(parsed, undefined, 2);
 
   const srcDir = path.join(local, "src");
   const destDir = path.join(local, "temp");
