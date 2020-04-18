@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-"use strict";
-const meow = require("meow");
-const run = require("./run");
+'use strict'
+const meow = require('meow')
+const app = require('../src')
 
 const cli = meow(
   `
@@ -23,33 +23,33 @@ const cli = meow(
   {
     flags: {
       config: {
-        type: "string",
-        alias: "C",
-        default: "skeletor.yml"
+        type: 'string',
+        alias: 'C',
+        default: 'skeletor.yml',
       },
       output: {
-        type: "string",
-        alias: "O",
-        default: "skeletor"
+        type: 'string',
+        alias: 'O',
+        default: 'skeletor',
       },
       gzip: {
-        type: "boolean",
-        default: false
+        type: 'boolean',
+        default: false,
       },
       minify: {
-        type: "boolean",
-        default: true
+        type: 'boolean',
+        default: true,
       },
       sourcemap: {
-        type: "boolean",
-        default: true
+        type: 'boolean',
+        default: true,
       },
       sass: {
-        type: "boolean",
-        default: true
-      }
-    }
+        type: 'boolean',
+        default: true,
+      },
+    },
   }
-);
+)
 
-run(cli.flags);
+app(cli.flags)

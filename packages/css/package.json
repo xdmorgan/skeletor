@@ -28,17 +28,19 @@
     "sass:watch": "node-sass -w src -o dist --source-map true --output-style compact",
     "sass:compile": "node-sass src/skeletor.scss dist/skeletor.css --source-map true --output-style compact",
     "sass:compress": "node-sass src/skeletor.scss dist/skeletor.min.css --source-map true --output-style compressed && gzip -k dist/skeletor.min.css",
-    "test": "echo \"Success: no test specified\" && exit 0"
+    "test": "jest"
   },
   "devDependencies": {
+    "jest": "^25.3.0",
+    "prettier": "^2.0.4",
     "rimraf": "^3.0.0",
     "stylelint": "^12.0.0",
     "stylelint-config-recommended-scss": "^4.1.0",
     "stylelint-scss": "^3.13.0"
   },
   "dependencies": {
-    "json-to-scss": "^1.5.0",
     "fs-extra": "^8.1.0",
+    "json-to-scss": "^1.5.0",
     "meow": "^6.0.0",
     "node-sass": "^4.9.3",
     "yaml": "^1.8.3"
