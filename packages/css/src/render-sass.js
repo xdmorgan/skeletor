@@ -6,6 +6,7 @@ function pathsByEntryPointName(name, dir) {
     src: path.join(dir, `sass/${name}.scss`),
     dest: path.join(dir, `${name}.css`),
     map: path.join(dir, `${name}.css.map`),
+    gzip: path.join(dir, `${name}.css.gz`),
   }
 }
 

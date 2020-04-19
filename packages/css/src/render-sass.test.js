@@ -38,6 +38,7 @@ describe('pathsByEntryPointName()', () => {
     expect(pathsByEntryPointName('skeletor', '')).toMatchInlineSnapshot(`
       Object {
         "dest": "skeletor.css",
+        "gzip": "skeletor.css.gz",
         "map": "skeletor.css.map",
         "src": "sass/skeletor.scss",
       }
@@ -46,6 +47,7 @@ describe('pathsByEntryPointName()', () => {
       .toMatchInlineSnapshot(`
       Object {
         "dest": "some_base/dir/skeletor.vars.css",
+        "gzip": "some_base/dir/skeletor.vars.css.gz",
         "map": "some_base/dir/skeletor.vars.css.map",
         "src": "some_base/dir/sass/skeletor.vars.scss",
       }
