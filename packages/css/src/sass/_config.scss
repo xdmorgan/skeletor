@@ -1,80 +1,75 @@
-$skeletor: (	
-  breakpoints: (	
-    sm: 420px,	
-    md: 768px,	
-    lg: 1024px,	
-    xl: 1280px,	
-    hd: 1440px	
-  ),	
-  colors: (	
-    red: red,	
-    blue: #00f,	
-    green: #bada55,	
-    purple: rebeccapurple,	
-    white: white,	
-    black: #000	
-  ),	
-  grid: (	
-    cols: 12,	
-    gutter: 24px	
-  ),	
-  container: (	
-    initial: (	
-      min: 320px,	
-      inset: 24px	
-    )	
-  ),	
-  dimensions: (	
-    auto: auto,	
-    none: none,	
-    fill: 100%	
-  ),	
-  displays: true,	
-  font-families: (	
-    system: (	
-      -apple-system,	
-      system-ui,	
-      BlinkMacSystemFont,	
-      Segoe UI,	
-      Helvetica,	
-      Arial,	
-      sans-serif,	
-      Apple Color Emoji,	
-      Segoe UI Emoji,	
-      Segoe UI Symbol	
-    )	
-  ),	
-  font-weights: (	
-    normal: 400,	
-    medium: 500,	
-    bold: 700	
-  ),	
-  line-heights: (	
-    compact: 1,	
-    default: 1.2,	
-    spacious: 1.4	
-  ),	
-  spacings: (	
-    0: 0,	
-    quarter: 2px,	
-    half: 4px,	
-    single: 8px,	
-    spacious: 12px,	
-    double: 16px,	
-    triple: 24px,	
-    quad: 32px,	
-    square: 64px	
-  ),	
-  z-indexes: (	
-    under: -1,	
-    over: 1,	
-    nav: 100,	
-    modal: 200,	
-    orbit: 1000	
-  ),	
-  rounded-corners: (	
-    small: 2px,	
-    pill: 999px,	
-    round: 50%	
-  )	
+$skeletor: (
+  normalize: true,
+  displays: true,
+  flex: true,
+  breakpoints: (
+    sm: 420px,
+    md: 768px,
+    lg: 1024px,
+  ),
+  colors: (
+    black: #000000,
+    shark: #252729,
+    tundora: #454647,
+    abbey: #575a5c,
+    silver: #bcbdbe,
+    alabaster: #f8f8f8,
+    white: #ffffff,
+  ),
+  container: (
+    initial: (
+      min: 272px,
+      inset: 24px,
+      max: 1400px,
+    ),
+    md: (
+      inset: 48px,
+      max: 1400px,
+    ),
+  ),
+  dimensions: (
+    auto: auto,
+    none: none,
+    fill: 100%,
+  ),
+  font-families: (
+    heading: (
+      Lora,
+      serif,
+    ),
+    body: (
+      Inter,
+      -apple-system,
+      system-ui,
+      BlinkMacSystemFont,
+      Segoe UI,
+      Helvetica,
+      Arial,
+      sans-serif,
+    ),
+  ),
+  font-weights: (
+    normal: 400,
+    bold: 700,
+  ),
+  line-heights: (
+    compact: 1.1,
+    default: 1.5,
+  ),
+  spacings: (
+    0: 0,
+    05x: 4px,
+    1x: 8px,
+    2x: 16px,
+    10x: 80px,
+  ),
+  z-indexes: (
+    under: -1,
+    over: 1,
+  ),
+  rounded-corners: (
+    none: 0,
+    small: 4px,
+    round: 50%,
+  ),
 );

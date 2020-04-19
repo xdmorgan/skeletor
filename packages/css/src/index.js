@@ -4,34 +4,7 @@ const path = require('path')
 const sass = require('node-sass')
 const spawn = require('cross-spawn')
 const { parse } = require('./parse-config')
-
-async function writeSassIndexByName(name, opts) {
-  const src = path.join(__dirname, `../temp/sass/${name}.scss`)
-  const dest = path.join(__dirname, `../temp/${name}.css`)
-  // const maps = ["--source-map", String(opts.flags.sourcemap)];
-  const result = sass.renderSync({
-    file: src,
-    outFile: dest,
-    outputStyle: 'compact',
-    sourceMap: true,
-  })
-  await fs.writeFile(dest, result.css)
-  // if (opts.flags.gzip) {
-  // spawn.sync("gzip", ["-k", `./temp/${name}.css`], opts.std);
-  // }
-
-  // if (opts.flags.minify) {
-  // spawn.sync(
-  //   "yarn",
-  //   [cmd, dest, `./temp/${name}.min.css`, ...maps, ...compressed],
-  //   opts.std
-  // );
-
-  // if (opts.flags.gzip) {
-  //   spawn.sync("gzip", ["-k", `./temp/${name}.min.css`], opts.std);
-  // }
-  // }
-}
+const { render, sassPathsByEntryPointName } = require('./render-sass')
 
 async function main({ config, output, gzip, minify, sourcemap, sass } = {}) {
   const cwd = process.cwd()
@@ -66,8 +39,11 @@ async function main({ config, output, gzip, minify, sourcemap, sass } = {}) {
     std: { stdio: 'inherit', cwd: local },
   }
 
-  await writeSassIndexByName('skeletor', opts)
-  await writeSassIndexByName('skeletor.vars', opts)
+  const { src, dest } = sassPathsByEntryPointName('skeletor', destDir)
+  const full = render({ src, dest })
+  await fs.writeFile(dest, full.styles)
+  // render(sassPathsByEntryPointName('skeletor.vars', destDir))
+  // await fs.remove(path.join(destSassDir, 'grid'))
 
   if (sass) {
     // if we're copying over the Sass directory to cwd, we need to clean

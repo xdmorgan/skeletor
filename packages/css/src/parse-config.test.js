@@ -1,24 +1,34 @@
 const path = require('path')
 const { parse } = require('./parse-config')
 
-describe('Load and parse yml config as json', () => {
-  test('Read sample config', async () => {
+describe('parse()', () => {
+  test('Load and parse yml config as json', async () => {
     const file = path.join(__dirname, '../config.yml')
     expect(await parse(file)).toMatchInlineSnapshot(`
       Object {
         "breakpoints": Object {
+          "lg": "1024px",
+          "md": "768px",
           "sm": "420px",
         },
         "colors": Object {
-          "blue": "#00f",
-          "green": "#bada55",
-          "purple": "rebeccapurple",
-          "red": "red",
+          "abbey": "#575A5C",
+          "alabaster": "#f8f8f8",
+          "black": "#000000",
+          "shark": "#252729",
+          "silver": "#BCBDBE",
+          "tundora": "#454647",
+          "white": "#FFFFFF",
         },
         "container": Object {
           "initial": Object {
             "inset": "24px",
-            "min": "320px",
+            "max": "1400px",
+            "min": "272px",
+          },
+          "md": Object {
+            "inset": "48px",
+            "max": "1400px",
           },
         },
         "dimensions": Object {
@@ -27,8 +37,10 @@ describe('Load and parse yml config as json', () => {
           "none": "none",
         },
         "displays": true,
+        "flex": true,
         "font-families": Object {
-          "system": Array [
+          "body": Array [
+            "Inter",
             "-apple-system",
             "system-ui",
             "BlinkMacSystemFont",
@@ -36,45 +48,34 @@ describe('Load and parse yml config as json', () => {
             "Helvetica",
             "Arial",
             "sans-serif",
-            "Apple Color Emoji",
-            "Segoe UI Emoji",
-            "Segoe UI Symbol",
+          ],
+          "heading": Array [
+            "Lora",
+            "serif",
           ],
         },
         "font-weights": Object {
           "bold": 700,
-          "medium": 500,
           "normal": 400,
         },
-        "grid": Object {
-          "cols": 12,
-          "gutter": "24px",
-        },
         "line-heights": Object {
-          "compact": 1,
-          "default": 1.2,
-          "spacious": 1.4,
+          "compact": 1.1,
+          "default": 1.5,
         },
+        "normalize": true,
         "rounded-corners": Object {
-          "pill": "999px",
+          "none": 0,
           "round": "50%",
-          "small": "2px",
+          "small": "4px",
         },
         "spacings": Object {
           "0": 0,
-          "double": "16px",
-          "half": "4px",
-          "quad": "32px",
-          "quarter": "2px",
-          "single": "8px",
-          "spacious": "12px",
-          "square": "64px",
-          "triple": "24px",
+          "05x": "4px",
+          "10x": "80px",
+          "1x": "8px",
+          "2x": "16px",
         },
         "z-indexes": Object {
-          "modal": 200,
-          "nav": 100,
-          "orbit": 1000,
           "over": 1,
           "under": -1,
         },

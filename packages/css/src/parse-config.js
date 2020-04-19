@@ -1,4 +1,4 @@
-const fs = require('fs').promises
+const fs = require('fs-extra')
 const YAML = require('yaml')
 
 async function parse(input) {
