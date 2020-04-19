@@ -1,10 +1,11 @@
 const path = require('path')
 const sass = require('node-sass')
 
-function sassPathsByEntryPointName(name, dir) {
+function pathsByEntryPointName(name, dir) {
   return {
     src: path.join(dir, `sass/${name}.scss`),
     dest: path.join(dir, `${name}.css`),
+    map: path.join(dir, `${name}.css.map`),
   }
 }
 
@@ -21,4 +22,4 @@ function render({ src, dest, outputStyle = 'compact', sourceMap = true } = {}) {
   }
 }
 
-module.exports = { render, sassPathsByEntryPointName }
+module.exports = { render, pathsByEntryPointName }

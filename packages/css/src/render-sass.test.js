@@ -1,5 +1,5 @@
 const path = require('path')
-const { render, sassPathsByEntryPointName } = require('./render-sass')
+const { render, pathsByEntryPointName } = require('./render-sass')
 
 describe('render()', () => {
   test('Renders main css file with default settings', () => {
@@ -33,18 +33,20 @@ describe('render()', () => {
   })
 })
 
-describe('sassPathsByEntryPointName()', () => {
+describe('pathsByEntryPointName()', () => {
   test('Shorthand to src and dest paths', () => {
-    expect(sassPathsByEntryPointName('skeletor', '')).toMatchInlineSnapshot(`
+    expect(pathsByEntryPointName('skeletor', '')).toMatchInlineSnapshot(`
       Object {
         "dest": "skeletor.css",
+        "map": "skeletor.css.map",
         "src": "sass/skeletor.scss",
       }
     `)
-    expect(sassPathsByEntryPointName('skeletor.vars', 'some_base/dir/'))
+    expect(pathsByEntryPointName('skeletor.vars', 'some_base/dir/'))
       .toMatchInlineSnapshot(`
       Object {
         "dest": "some_base/dir/skeletor.vars.css",
+        "map": "some_base/dir/skeletor.vars.css.map",
         "src": "some_base/dir/sass/skeletor.vars.scss",
       }
     `)

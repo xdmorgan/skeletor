@@ -1,10 +1,16 @@
 #!/usr/bin/env node
 const fs = require('fs-extra')
 const path = require('path')
-const sass = require('node-sass')
 const spawn = require('cross-spawn')
 const { parse } = require('./parse-config')
-const { render, sassPathsByEntryPointName } = require('./render-sass')
+const { render, pathsByEntryPointName } = require('./render-sass')
+
+async function renderAndWriteByIndexName(name, dir, opts = {}) {
+  const paths = pathsByEntryPointName(name, dir)
+  const rendered = render({ src: paths.src, dest: paths.dest, ...opts })
+  await fs.writeFile(paths.dest, rendered.styles)
+  opts.sourceMap && (await fs.writeFile(paths.map, rendered.sourceMap))
+}
 
 async function main({ config, output, gzip, minify, sourcemap, sass } = {}) {
   const cwd = process.cwd()
@@ -34,16 +40,12 @@ async function main({ config, output, gzip, minify, sourcemap, sass } = {}) {
     '--p="$skeletor: "',
   ])
 
-  const opts = {
-    flags: { gzip, minify, sourcemap },
-    std: { stdio: 'inherit', cwd: local },
+  const renderOptions = {
+    outputStyle: minify ? 'compressed' : 'compact',
+    sourceMap: !!sourcemap,
   }
-
-  const { src, dest } = sassPathsByEntryPointName('skeletor', destDir)
-  const full = render({ src, dest })
-  await fs.writeFile(dest, full.styles)
-  // render(sassPathsByEntryPointName('skeletor.vars', destDir))
-  // await fs.remove(path.join(destSassDir, 'grid'))
+  await renderAndWriteByIndexName('skeletor', destDir, renderOptions)
+  await renderAndWriteByIndexName('skeletor.vars', destDir, renderOptions)
 
   if (sass) {
     // if we're copying over the Sass directory to cwd, we need to clean
