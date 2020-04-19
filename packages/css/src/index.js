@@ -1,36 +1,15 @@
 #!/usr/bin/env node
 const fs = require('fs-extra')
 const path = require('path')
-const sass = require('node-sass')
 const spawn = require('cross-spawn')
 const { parse } = require('./parse-config')
+const { render, pathsByEntryPointName } = require('./render-sass')
 
-async function writeSassIndexByName(name, opts) {
-  const src = path.join(__dirname, `../temp/sass/${name}.scss`)
-  const dest = path.join(__dirname, `../temp/${name}.css`)
-  // const maps = ["--source-map", String(opts.flags.sourcemap)];
-  const result = sass.renderSync({
-    file: src,
-    outFile: dest,
-    outputStyle: 'compact',
-    sourceMap: true,
-  })
-  await fs.writeFile(dest, result.css)
-  // if (opts.flags.gzip) {
-  // spawn.sync("gzip", ["-k", `./temp/${name}.css`], opts.std);
-  // }
-
-  // if (opts.flags.minify) {
-  // spawn.sync(
-  //   "yarn",
-  //   [cmd, dest, `./temp/${name}.min.css`, ...maps, ...compressed],
-  //   opts.std
-  // );
-
-  // if (opts.flags.gzip) {
-  //   spawn.sync("gzip", ["-k", `./temp/${name}.min.css`], opts.std);
-  // }
-  // }
+async function renderAndWriteByIndexName(name, dir, opts = {}) {
+  const paths = pathsByEntryPointName(name, dir)
+  const rendered = render({ src: paths.src, dest: paths.dest, ...opts })
+  await fs.writeFile(paths.dest, rendered.styles)
+  opts.sourceMap && (await fs.writeFile(paths.map, rendered.sourceMap))
 }
 
 async function main({ config, output, gzip, minify, sourcemap, sass } = {}) {
@@ -61,13 +40,12 @@ async function main({ config, output, gzip, minify, sourcemap, sass } = {}) {
     '--p="$skeletor: "',
   ])
 
-  const opts = {
-    flags: { gzip, minify, sourcemap },
-    std: { stdio: 'inherit', cwd: local },
+  const renderOptions = {
+    outputStyle: minify ? 'compressed' : 'compact',
+    sourceMap: !!sourcemap,
   }
-
-  await writeSassIndexByName('skeletor', opts)
-  await writeSassIndexByName('skeletor.vars', opts)
+  await renderAndWriteByIndexName('skeletor', destDir, renderOptions)
+  await renderAndWriteByIndexName('skeletor.vars', destDir, renderOptions)
 
   if (sass) {
     // if we're copying over the Sass directory to cwd, we need to clean
