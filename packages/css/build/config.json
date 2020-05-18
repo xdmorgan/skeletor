@@ -1,0 +1,75 @@
+{
+  "normalize": true,
+  "displays": true,
+  "flex": true,
+  "breakpoints": {
+    "sm": "420px",
+    "md": "768px",
+    "lg": "1024px"
+  },
+  "colors": {
+    "black": "#000000",
+    "shark": "#252729",
+    "tundora": "#454647",
+    "abbey": "#575A5C",
+    "silver": "#BCBDBE",
+    "alabaster": "#f8f8f8",
+    "white": "#FFFFFF"
+  },
+  "container": {
+    "initial": {
+      "min": "272px",
+      "inset": "24px",
+      "max": "1400px"
+    },
+    "md": {
+      "inset": "48px",
+      "max": "1400px"
+    }
+  },
+  "dimensions": {
+    "auto": "auto",
+    "none": "none",
+    "fill": "100%"
+  },
+  "font-families": {
+    "heading": [
+      "Lora",
+      "serif"
+    ],
+    "body": [
+      "Inter",
+      "-apple-system",
+      "system-ui",
+      "BlinkMacSystemFont",
+      "Segoe UI",
+      "Helvetica",
+      "Arial",
+      "sans-serif"
+    ]
+  },
+  "font-weights": {
+    "normal": 400,
+    "bold": 700
+  },
+  "line-heights": {
+    "compact": 1.1,
+    "default": 1.5
+  },
+  "spacings": {
+    "0": 0,
+    "05x": "4px",
+    "1x": "8px",
+    "2x": "16px",
+    "10x": "80px"
+  },
+  "z-indexes": {
+    "under": -1,
+    "over": 1
+  },
+  "rounded-corners": {
+    "none": 0,
+    "small": "4px",
+    "round": "50%"
+  }
+}

@@ -10,11 +10,11 @@ breakpoints:
 
 colors:
   red: red
-  blue: "#00f"
-  green: "#bada55"
+  blue: '#00f'
+  green: '#bada55'
   purple: rebeccapurple
   white: white
-  black: "#000"
+  black: '#000'
 
 grid:
   cols: 12
@@ -56,7 +56,7 @@ line-heights:
 spacings:
   0: 0
   quarter: 2px
-  half: 4px
+  05x: 4px
   single: 8px
   spacious: 12px
   double: 16px

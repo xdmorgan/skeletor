@@ -1,0 +1,40 @@
+@if map-get($skeletor, displays) != null {
+  $property-names: (
+    d: display
+  );
+
+  $property-values: (
+    d: (
+      none,
+      inline,
+      inline-block,
+      block,
+      flex,
+      inline-flex,
+      grid,
+      table
+    )
+  );
+
+  @each $p-key, $p-list in $property-values {
+    $p-name: safe-map-get($property-names, $p-key);
+    @each $p-val in $p-list {
+      .#{$p-key}-#{$p-val} {
+        #{$p-name}: $p-val;
+      }
+    }
+  }
+
+  @each $b-key, $b-val in map-get($skeletor, breakpoints) {
+    @include min-width($b-val) {
+      @each $p-key, $p-list in $property-values {
+        $p-name: safe-map-get($property-names, $p-key);
+        @each $p-val in $p-list {
+          .#{$b-key}\:#{$p-key}-#{$p-val} {
+            #{$p-name}: $p-val;
+          }
+        }
+      }
+    }
+  }
+}

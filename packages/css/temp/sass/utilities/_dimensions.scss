@@ -1,0 +1,38 @@
+$dim-props: (
+  w: width,
+  h: height
+);
+
+@each $d-key, $d-val in map-get($skeletor, dimensions) {
+  @each $p-key, $p-val in $dim-props {
+    .#{$p-key}-#{$d-key} {
+      #{$p-val}: $d-val;
+    }
+    .#{$p-key}-min-#{$d-key} {
+      min-#{$p-val}: $d-val;
+    }
+    .#{$p-key}-max-#{$d-key} {
+      max-#{$p-val}: $d-val;
+    }
+  }
+}
+
+@each $b-key, $b-val in map-get($skeletor, breakpoints) {
+  @include min-width($b-val) {
+    .#{$b-key}\: {
+      @each $d-key, $d-val in map-get($skeletor, dimensions) {
+        @each $p-key, $p-val in $dim-props {
+          &#{$p-key}-#{$d-key} {
+            #{$p-val}: $d-val;
+          }
+          &#{$p-key}-min-#{$d-key} {
+            min-#{$p-val}: $d-val;
+          }
+          &#{$p-key}-max-#{$d-key} {
+            max-#{$p-val}: $d-val;
+          }
+        }
+      }
+    }
+  }
+}

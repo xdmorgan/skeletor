@@ -42,7 +42,9 @@ async function main({ config, output, gzip, minify, sourcemap, sass } = {}) {
   spawn.sync('./node_modules/.bin/json-to-scss', [
     paths.temp.json,
     paths.temp.sass.config,
-    '--p="$skeletor: "',
+    // quote keys to avoid mutations by the parser
+    // e.g. converting colors or stripping zeroes
+    '--p="$skeletor: " --k="dq"',
   ])
   // node-sass render options
   const settings = {

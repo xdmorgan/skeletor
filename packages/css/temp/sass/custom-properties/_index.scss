@@ -1,0 +1,17 @@
+@mixin to-css-vars($prefix, $map) {
+  @each $key, $val in $map {
+    // inspect fixes automatic production build conversion of
+    // named colors like 'white' and 'black' to #fff or #000
+    --#{$prefix}-#{inspect($key)}: #{$val};
+  }
+}
+
+:root {
+  @include to-css-vars(color, map-get($skeletor, colors));
+  @include to-css-vars(break, map-get($skeletor, breakpoints));
+  @include to-css-vars(space, map-get($skeletor, spacings));
+  @include to-css-vars(font, map-get($skeletor, font-families));
+  @include to-css-vars(layer, map-get($skeletor, z-indexes));
+  @include to-css-vars(radius, map-get($skeletor, rounded-corners));
+  @include to-css-vars(line, map-get($skeletor, line-heights));
+}

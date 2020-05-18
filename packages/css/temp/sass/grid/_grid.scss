@@ -1,0 +1,73 @@
+@mixin grid-column($size, $span, $gutter) {
+  flex: none;
+  margin-left: $gutter;
+  width: calc(#{$size * $span} - #{$gutter});
+}
+
+@mixin grid-offset($size, $span, $gutter) {
+  margin-left: calc(#{$size * $span} + #{$gutter});
+}
+
+$grid: map-get($skeletor, "grid");
+
+@if $grid != null {
+  $grid-cols: safe-map-get($grid, "cols");
+  $grid-gutter: safe-map-get($grid, "gutter");
+  $col-size: 100% / $grid-cols;
+
+  .g {
+    @include property-x(margin, auto);
+    @each $b-key, $b-val in map-get($map: $skeletor, $key: breakpoints) {
+      @include min-width($b-val) {
+        width: ($b-val - ($grid-gutter * 2));
+      }
+    }
+  }
+
+  .gr {
+    display: flex;
+    margin-left: -$grid-gutter;
+    flex-wrap: wrap;
+    &--rtl {
+      flex-direction: row-reverse;
+    }
+  }
+
+  .gc {
+    flex: 1;
+    margin-left: $grid-gutter;
+
+    &-fixed {
+      flex: 0;
+    }
+    @for $_col-span from 1 to ($grid-cols + 1) {
+      &-#{$_col-span} {
+        @include grid-column($col-size, $_col-span, $grid-gutter);
+      }
+    }
+    @for $_col-offset from 1 to $grid-cols {
+      &-o-#{$_col-offset} {
+        @include grid-offset($col-size, $_col-offset, $grid-gutter);
+      }
+    }
+  }
+
+  @each $b-key, $b-val in map-get($map: $skeletor, $key: breakpoints) {
+    @include min-width($b-val) {
+      .#{$b-key}\:gc {
+        flex: 1;
+        width: 100%;
+      }
+      @for $_col-span from 1 to ($grid-cols + 1) {
+        .#{$b-key}\:gc-#{$_col-span} {
+          @include grid-column($col-size, $_col-span, $grid-gutter);
+        }
+      }
+      @for $_col-offset from 1 to $grid-cols {
+        .#{$b-key}\:gc-o-#{$_col-offset} {
+          @include grid-offset($col-size, $_col-offset, $grid-gutter);
+        }
+      }
+    }
+  }
+}
