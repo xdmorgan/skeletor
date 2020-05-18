@@ -11,7 +11,6 @@ $dirs: (
 
 $spacings: map-get($skeletor, spacings);
 @each $prop-key, $prop-val in $props {
-  @debug $skeletor;
   @each $space-key, $space-val in $spacings {
     .#{$prop-key}-#{$space-key} {
       #{$prop-val}: $space-val;

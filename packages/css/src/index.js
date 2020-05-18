@@ -44,7 +44,8 @@ async function main({ config, output, gzip, minify, sourcemap, sass } = {}) {
     paths.temp.sass.config,
     // quote keys to avoid mutations by the parser
     // e.g. converting colors or stripping zeroes
-    '--p="$skeletor: " --k="dq"',
+    '--p="$skeletor: "',
+    '--k="dq"',
   ])
   // node-sass render options
   const settings = {
