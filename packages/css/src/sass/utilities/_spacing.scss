@@ -1,12 +1,12 @@
 $props: (
   p: padding,
-  m: margin
+  m: margin,
 );
 $dirs: (
   t: top,
   r: right,
   b: bottom,
-  l: left
+  l: left,
 );
 
 $spacings: map-get($skeletor, spacings);
@@ -40,6 +40,8 @@ $spacings: map-get($skeletor, spacings);
 @each $b-key, $b-val in map-get($skeletor, breakpoints) {
   @include min-width($b-val) {
     @each $p-key, $p-val in $props {
+      // these are separate loops so final source order
+      // makes sense for overrides (least to most specific)
       @each $s-key, $s-val in $spacings {
         .#{$b-key}\:#{$p-key}-#{$s-key} {
           #{$p-val}: $s-val;

@@ -1,4 +1,8 @@
 // utility classes
+html {
+  box-sizing: border-box;
+}
+
 *,
 *:before,
 *:after {
@@ -47,6 +51,18 @@
     .#{$break-key}\:sr-only,
     .#{$break-key}\:sr-focus:not(:focus) {
       @include sr-only;
+    }
+  }
+}
+
+.list-reset {
+  @include list-reset;
+}
+
+@each $break-key, $break-val in map-get($skeletor, breakpoints) {
+  @include min-width($break-val) {
+    .#{$break-key}\:list-reset {
+      @include list-reset;
     }
   }
 }
