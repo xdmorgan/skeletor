@@ -24,7 +24,7 @@ describe('render()', () => {
     const { styles, sourceMap } = render({
       src,
       dest,
-      outputStyle: 'compressed',
+      outputStyle: 'compact',
       sourceMap: false,
     })
     expect(typeof styles).toBe('string')
