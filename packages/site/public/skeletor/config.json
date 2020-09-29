@@ -1,0 +1,83 @@
+{
+  "displays": true,
+  "flex": true,
+  "breakpoints": {
+    "sm": "420px",
+    "md": "768px",
+    "lg": "1024px",
+    "xl": "1280px",
+    "hd": "1440px"
+  },
+  "colors": {
+    "red": "red",
+    "blue": "#00f",
+    "green": "#bada55",
+    "purple": "rebeccapurple",
+    "white": "white",
+    "black": "#000"
+  },
+  "grid": {
+    "cols": 12,
+    "gutter": "24px"
+  },
+  "container": {
+    "initial": {
+      "min": "320px",
+      "inset": "24px"
+    }
+  },
+  "dimensions": {
+    "auto": "auto",
+    "none": "none",
+    "fill": "100%"
+  },
+  "font-families": {
+    "system": [
+      "-apple-system",
+      "system-ui",
+      "BlinkMacSystemFont",
+      "Segoe UI",
+      "Helvetica",
+      "Arial",
+      "sans-serif",
+      "Apple Color Emoji",
+      "Segoe UI Emoji",
+      "Segoe UI Symbol"
+    ]
+  },
+  "font-weights": {
+    "normal": 400,
+    "medium": 500,
+    "bold": 700
+  },
+  "line-heights": {
+    "compact": 1,
+    "default": 1.2,
+    "spacious": 1.4
+  },
+  "spacings": {
+    "0": 0,
+    "quarter": "2px",
+    "05x": "4px",
+    "single": "8px",
+    "spacious": "12px",
+    "double": "16px",
+    "triple": "24px",
+    "quad": "32px",
+    "square": "64px",
+    "ten": "80px"
+  },
+  "z-indexes": {
+    "under": -1,
+    "over": 1,
+    "nav": 100,
+    "modal": 200,
+    "orbit": 1000
+  },
+  "rounded-corners": {
+    "small": "2px",
+    "large": "8px",
+    "pill": "999px",
+    "round": "50%"
+  }
+}
