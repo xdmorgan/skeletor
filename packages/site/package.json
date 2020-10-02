@@ -24,6 +24,6 @@
     "rimraf": "^3.0.0"
   },
   "dependencies": {
-    "@skeletor/css": "^0.12.0"
+    "@skeletor/css": "^0.16.0"
   }
 }
