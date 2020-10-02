@@ -11,10 +11,11 @@ const cli = meow(
     Options
       --config, -C     Specify config file/path
       --output, -O     Specify output folder/path 
-      --gzip           Produce gzipped outputs (system command)
-      --no-sass        Disable production of Sass core
-      --no-minify      Disable production of minified outputs
-      --no-sourcemap   Disable production of sourcemaps
+      --gzip           Produce gzipped outputs
+      --no-json        Disable output of JSON object
+      --no-sass        Disable output of Sass core
+      --no-minify      Prefer compact to default compressed Sass outputStyle
+      --no-sourcemap   Disable output of sourcemaps
  
     Examples
       $ skeletor --config config.yml --output dist
@@ -41,6 +42,10 @@ const cli = meow(
         default: true,
       },
       sourcemap: {
+        type: 'boolean',
+        default: true,
+      },
+      json: {
         type: 'boolean',
         default: true,
       },
