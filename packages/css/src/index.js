@@ -22,7 +22,15 @@ async function renderAndWriteByIndexName(name, dir, opts = {}) {
 }
 
 // TODO: rename config (file) and output (dir) to in-file and out-dir
-async function main({ config, output, gzip, minify, sourcemap, sass } = {}) {
+async function main({
+  config,
+  output,
+  gzip,
+  minify,
+  sourcemap,
+  sass,
+  json,
+} = {}) {
   // get all the paths we need
   const paths = getFilePaths({
     localDir: path.join(__dirname, '..'),
@@ -56,7 +64,10 @@ async function main({ config, output, gzip, minify, sourcemap, sass } = {}) {
   // with the settings above, render sass as css then write to to temp
   // dir for the skeletor.scss and skeletor.vars.scss entry points
   await renderAndWriteByIndexName('skeletor', paths.temp.dir, settings)
-  await renderAndWriteByIndexName('skeletor.vars', paths.temp.dir, settings)
+  // hoy the json if desired
+  if (!json) {
+    await fs.remove(path.join(paths.temp.json))
+  }
   // now that the css files are rendered and written, begin clean up
   if (sass) {
     // if we're copying the Sass directory to cwd, we need to clean
