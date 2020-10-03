@@ -68,3 +68,8 @@ rounded-corners:
   none: 0
   small: 4px
   round: 50%
+
+box-shadows:
+  focus: 0 0 2px 2px rebeccapurple
+  low: '0px 4px 6px 0px #828282'
+  high: '0px 8px 12px 0px #828282'

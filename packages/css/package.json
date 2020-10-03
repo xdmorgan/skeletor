@@ -23,7 +23,7 @@
     "clean": "rimraf ./dist",
     "start": "yarn clean && yarn sass:watch",
     "build": "yarn clean && yarn lint && yarn sass:compile && yarn sass:compress",
-    "cli": "node cli",
+    "cli": "node cli -C config.yml -O dist --no-minify",
     "lint": "stylelint 'src/**/*.scss'",
     "sass:watch": "node-sass -w src -o dist --source-map true --output-style compact",
     "sass:compile": "node-sass src/skeletor.scss dist/skeletor.css --source-map true --output-style compact",

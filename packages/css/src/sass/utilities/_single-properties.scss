@@ -11,7 +11,7 @@
   (
     l: left,
     r: right,
-    0: none
+    0: none,
   )
 );
 @include generator(
@@ -22,6 +22,8 @@
     r: right,
     0: none,
     c: center,
-    j: justify
+    j: justify,
   )
 );
+
+@include generator(bs, box-shadow, map-get($skeletor, box-shadows));
