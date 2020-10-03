@@ -16,6 +16,8 @@ const cli = meow(
       --no-sass        Disable output of Sass core
       --no-minify      Prefer compact to default compressed Sass outputStyle
       --no-sourcemap   Disable output of sourcemaps
+      --vars-build     Produce a CSS custom properties build
+      --core-build     Produce a core-only CSS build (debug flag, should be empty)
  
     Examples
       $ skeletor --config config.yml --output dist
@@ -52,6 +54,14 @@ const cli = meow(
       sass: {
         type: 'boolean',
         default: true,
+      },
+      varsBuild: {
+        type: 'boolean',
+        default: false,
+      },
+      coreBuild: {
+        type: 'boolean',
+        default: false,
       },
     },
   }
