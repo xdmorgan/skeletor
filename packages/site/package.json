@@ -13,7 +13,7 @@
   },
   "homepage": "https://github.com/xdmorgan/skeletor#readme",
   "scripts": {
-    "build": "skeletor -O public/skeletor --no-sass",
+    "build": "skeletor -O public/skeletor --no-minify",
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve:build": "http-server ./public --gzip -o prod.html",
     "serve:dev": "http-server ./public",
