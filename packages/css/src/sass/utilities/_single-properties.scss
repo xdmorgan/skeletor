@@ -26,4 +26,4 @@
   )
 );
 
-@include generator(bs, box-shadow, map-get($skeletor, box-shadows));
+@include generator(shadow, box-shadow, map-get($skeletor, box-shadows));
