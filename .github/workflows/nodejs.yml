@@ -24,6 +24,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: yarn
+      - run: yarn workspace @skeletor/css lint
       - run: yarn workspace @skeletor/css test
         env:
           CI: true

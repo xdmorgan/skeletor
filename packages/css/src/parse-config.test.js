@@ -6,6 +6,11 @@ describe('parse()', () => {
     const file = path.join(__dirname, '../config.yml')
     expect(await parse(file)).toMatchInlineSnapshot(`
       Object {
+        "box-shadows": Object {
+          "focus": "0 0 2px 2px rebeccapurple",
+          "high": "0px 8px 12px 0px #828282",
+          "low": "0px 4px 6px 0px #828282",
+        },
         "breakpoints": Object {
           "lg": "1024px",
           "md": "768px",

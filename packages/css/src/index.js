@@ -30,6 +30,8 @@ async function main({
   sourcemap,
   sass,
   json,
+  varsBuild,
+  coreBuild,
 } = {}) {
   // get all the paths we need
   const paths = getFilePaths({
@@ -64,6 +66,14 @@ async function main({
   // with the settings above, render sass as css then write to to temp
   // dir for the skeletor.scss and skeletor.vars.scss entry points
   await renderAndWriteByIndexName('skeletor', paths.temp.dir, settings)
+  if (varsBuild) {
+    // a build with only css customer properties
+    await renderAndWriteByIndexName('skeletor.vars', paths.temp.dir, settings)
+  }
+  if (coreBuild) {
+    // bundle the core entry point, to debug that no classes are produced
+    await renderAndWriteByIndexName('skeletor.core', paths.temp.dir, settings)
+  }
   // hoy the json if desired
   if (!json) {
     await fs.remove(path.join(paths.temp.json))

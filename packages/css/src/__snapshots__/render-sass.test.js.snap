@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`render() Renders main css file with custom optional settings 1`] = `
-":root { --break-sm: 420px; --break-md: 768px; --break-lg: 1024px; --color-black: #000000; --color-shark: #252729; --color-tundora: #454647; --color-abbey: #575A5C; --color-silver: #BCBDBE; --color-alabaster: #f8f8f8; --color-white: #FFFFFF; --font-heading: Lora, serif; --font-body: Inter, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif; --layer-under: -1; --layer-over: 1; --line-compact: 1.1; --line-default: 1.5; --radius-none: 0; --radius-small: 4px; --radius-round: 50%; --space-0: 0; --space-05x: 4px; --space-1x: 8px; --space-2x: 16px; --space-10x: 80px; --weight-normal: 400; --weight-bold: 700; }
+":root { --break-sm: 420px; --break-md: 768px; --break-lg: 1024px; --color-black: #000000; --color-shark: #252729; --color-tundora: #454647; --color-abbey: #575A5C; --color-silver: #BCBDBE; --color-alabaster: #f8f8f8; --color-white: #FFFFFF; --font-heading: Lora, serif; --font-body: Inter, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif; --layer-under: -1; --layer-over: 1; --line-compact: 1.1; --line-default: 1.5; --radius-none: 0; --radius-small: 4px; --radius-round: 50%; --shadow-focus: 0 0 2px 2px rebeccapurple; --shadow-low: 0px 4px 6px 0px #828282; --shadow-high: 0px 8px 12px 0px #828282; --space-0: 0; --space-05x: 4px; --space-1x: 8px; --space-2x: 16px; --space-10x: 80px; --weight-normal: 400; --weight-bold: 700; }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document ========================================================================== */
@@ -339,6 +339,24 @@ html { box-sizing: border-box; }
   .lg\\\\:align-0 { text-align: none; }
   .lg\\\\:align-c { text-align: center; }
   .lg\\\\:align-j { text-align: justify; } }
+
+.shadow-focus { box-shadow: 0 0 2px 2px rebeccapurple; }
+
+.shadow-low { box-shadow: 0px 4px 6px 0px #828282; }
+
+.shadow-high { box-shadow: 0px 8px 12px 0px #828282; }
+
+@media screen and (min-width: 420px) { .sm\\\\:shadow-focus { box-shadow: 0 0 2px 2px rebeccapurple; }
+  .sm\\\\:shadow-low { box-shadow: 0px 4px 6px 0px #828282; }
+  .sm\\\\:shadow-high { box-shadow: 0px 8px 12px 0px #828282; } }
+
+@media screen and (min-width: 768px) { .md\\\\:shadow-focus { box-shadow: 0 0 2px 2px rebeccapurple; }
+  .md\\\\:shadow-low { box-shadow: 0px 4px 6px 0px #828282; }
+  .md\\\\:shadow-high { box-shadow: 0px 8px 12px 0px #828282; } }
+
+@media screen and (min-width: 1024px) { .lg\\\\:shadow-focus { box-shadow: 0 0 2px 2px rebeccapurple; }
+  .lg\\\\:shadow-low { box-shadow: 0px 4px 6px 0px #828282; }
+  .lg\\\\:shadow-high { box-shadow: 0px 8px 12px 0px #828282; } }
 
 .flx-0 { flex: 0; }
 
@@ -964,7 +982,7 @@ html { box-sizing: border-box; }
 `;
 
 exports[`render() Renders main css file with default settings 1`] = `
-":root { --break-sm: 420px; --break-md: 768px; --break-lg: 1024px; --color-black: #000000; --color-shark: #252729; --color-tundora: #454647; --color-abbey: #575A5C; --color-silver: #BCBDBE; --color-alabaster: #f8f8f8; --color-white: #FFFFFF; --font-heading: Lora, serif; --font-body: Inter, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif; --layer-under: -1; --layer-over: 1; --line-compact: 1.1; --line-default: 1.5; --radius-none: 0; --radius-small: 4px; --radius-round: 50%; --space-0: 0; --space-05x: 4px; --space-1x: 8px; --space-2x: 16px; --space-10x: 80px; --weight-normal: 400; --weight-bold: 700; }
+":root { --break-sm: 420px; --break-md: 768px; --break-lg: 1024px; --color-black: #000000; --color-shark: #252729; --color-tundora: #454647; --color-abbey: #575A5C; --color-silver: #BCBDBE; --color-alabaster: #f8f8f8; --color-white: #FFFFFF; --font-heading: Lora, serif; --font-body: Inter, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif; --layer-under: -1; --layer-over: 1; --line-compact: 1.1; --line-default: 1.5; --radius-none: 0; --radius-small: 4px; --radius-round: 50%; --shadow-focus: 0 0 2px 2px rebeccapurple; --shadow-low: 0px 4px 6px 0px #828282; --shadow-high: 0px 8px 12px 0px #828282; --space-0: 0; --space-05x: 4px; --space-1x: 8px; --space-2x: 16px; --space-10x: 80px; --weight-normal: 400; --weight-bold: 700; }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document ========================================================================== */
@@ -1302,6 +1320,24 @@ html { box-sizing: border-box; }
   .lg\\\\:align-0 { text-align: none; }
   .lg\\\\:align-c { text-align: center; }
   .lg\\\\:align-j { text-align: justify; } }
+
+.shadow-focus { box-shadow: 0 0 2px 2px rebeccapurple; }
+
+.shadow-low { box-shadow: 0px 4px 6px 0px #828282; }
+
+.shadow-high { box-shadow: 0px 8px 12px 0px #828282; }
+
+@media screen and (min-width: 420px) { .sm\\\\:shadow-focus { box-shadow: 0 0 2px 2px rebeccapurple; }
+  .sm\\\\:shadow-low { box-shadow: 0px 4px 6px 0px #828282; }
+  .sm\\\\:shadow-high { box-shadow: 0px 8px 12px 0px #828282; } }
+
+@media screen and (min-width: 768px) { .md\\\\:shadow-focus { box-shadow: 0 0 2px 2px rebeccapurple; }
+  .md\\\\:shadow-low { box-shadow: 0px 4px 6px 0px #828282; }
+  .md\\\\:shadow-high { box-shadow: 0px 8px 12px 0px #828282; } }
+
+@media screen and (min-width: 1024px) { .lg\\\\:shadow-focus { box-shadow: 0 0 2px 2px rebeccapurple; }
+  .lg\\\\:shadow-low { box-shadow: 0px 4px 6px 0px #828282; }
+  .lg\\\\:shadow-high { box-shadow: 0px 8px 12px 0px #828282; } }
 
 .flx-0 { flex: 0; }
 
@@ -1928,7 +1964,7 @@ html { box-sizing: border-box; }
 `;
 
 exports[`render() Renders vars-only css file with default settings 1`] = `
-":root { --break-sm: 420px; --break-md: 768px; --break-lg: 1024px; --color-black: #000000; --color-shark: #252729; --color-tundora: #454647; --color-abbey: #575A5C; --color-silver: #BCBDBE; --color-alabaster: #f8f8f8; --color-white: #FFFFFF; --font-heading: Lora, serif; --font-body: Inter, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif; --layer-under: -1; --layer-over: 1; --line-compact: 1.1; --line-default: 1.5; --radius-none: 0; --radius-small: 4px; --radius-round: 50%; --space-0: 0; --space-05x: 4px; --space-1x: 8px; --space-2x: 16px; --space-10x: 80px; --weight-normal: 400; --weight-bold: 700; }
+":root { --break-sm: 420px; --break-md: 768px; --break-lg: 1024px; --color-black: #000000; --color-shark: #252729; --color-tundora: #454647; --color-abbey: #575A5C; --color-silver: #BCBDBE; --color-alabaster: #f8f8f8; --color-white: #FFFFFF; --font-heading: Lora, serif; --font-body: Inter, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif; --layer-under: -1; --layer-over: 1; --line-compact: 1.1; --line-default: 1.5; --radius-none: 0; --radius-small: 4px; --radius-round: 50%; --shadow-focus: 0 0 2px 2px rebeccapurple; --shadow-low: 0px 4px 6px 0px #828282; --shadow-high: 0px 8px 12px 0px #828282; --space-0: 0; --space-05x: 4px; --space-1x: 8px; --space-2x: 16px; --space-10x: 80px; --weight-normal: 400; --weight-bold: 700; }
 
 /*# sourceMappingURL=skeletor.vars.css.map */"
 `;

@@ -18,16 +18,19 @@ Usage
   $ skeletor
 
 Options
-  --config, -C     Specify config file (or ./skeletor.yml)
-  --output, -O     Specify output folder (or ./skeletor)
-  --gzip           Enable gzip of outputs (system command)
+  --config, -C     Specify config file/path
+  --output, -O     Specify output folder/path
+  --gzip           Produce gzipped outputs
+  --no-json        Disable output of JSON object
   --no-sass        Disable output of Sass core
-  --no-minify      Disable output of minified outputs
+  --no-minify      Prefer compact to default compressed Sass outputStyle
   --no-sourcemap   Disable output of sourcemaps
+  --vars-build     Produce a CSS custom properties build
+  --core-build     Produce a core-only CSS build (debug flag, should be empty)
 
 Examples
-  $ yarn skeletor --config styles/base.yml --output public --gzip --no-sass
-  $ npm run skeletor [options]
+  $ skeletor --config config.yml --output dist
+  Specify an alternate path to config file (default: ./skeletor.yml)
 ```
 
 ## Documentation
