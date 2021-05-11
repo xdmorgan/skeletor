@@ -463,6 +463,18 @@
   dependencies:
     type-detect "4.0.8"
 
+"@skeletor/css@^0.16.0":
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/@skeletor/css/-/css-0.16.0.tgz#d522af937fd8c76508bad231a6c7c94ad149c12d"
+  integrity sha512-Q7piw8UBv6tz7qYZZoRRm16z6uQgsgR+rbCpl+G4B60HuzWV2bY4BudZkTPa4ayDaX7WVFfaN9ntVL3xZEzoIg==
+  dependencies:
+    fs-extra "^8.1.0"
+    json-to-scss "^1.5.0"
+    meow "^6.0.0"
+    node-gzip "^1.1.2"
+    node-sass "^4.9.3"
+    yaml "^1.8.3"
+
 "@types/babel__core@^7.1.7":
   version "7.1.7"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.7.tgz#1dacad8840364a57c98d0dd4855c6dd3752c6b89"
@@ -3210,9 +3222,9 @@ lodash.toarray@^4.4.0:
   integrity sha1-JMS/zWsvuji/0FlNsRedjptlZWE=
 
 lodash@^4.0.0, lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@~4.17.12:
-  version "4.17.19"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.19.tgz#e48ddedbe30b3321783c5b4301fbd353bc1e4a4b"
-  integrity sha512-JNvd8XER9GQX0v2qJgsaN/mzFCNA5BRe/j8JN9d+tWyGLSodKQHKFicdwNYzWwI3wjRnaKPsGj1XkBjx/F96DQ==
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
 log-symbols@^2.2.0:
   version "2.2.0"
