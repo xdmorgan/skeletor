@@ -463,6 +463,18 @@
   dependencies:
     type-detect "4.0.8"
 
+"@skeletor/css@^0.16.0":
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/@skeletor/css/-/css-0.16.0.tgz#d522af937fd8c76508bad231a6c7c94ad149c12d"
+  integrity sha512-Q7piw8UBv6tz7qYZZoRRm16z6uQgsgR+rbCpl+G4B60HuzWV2bY4BudZkTPa4ayDaX7WVFfaN9ntVL3xZEzoIg==
+  dependencies:
+    fs-extra "^8.1.0"
+    json-to-scss "^1.5.0"
+    meow "^6.0.0"
+    node-gzip "^1.1.2"
+    node-sass "^4.9.3"
+    yaml "^1.8.3"
+
 "@types/babel__core@^7.1.7":
   version "7.1.7"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.7.tgz#1dacad8840364a57c98d0dd4855c6dd3752c6b89"
@@ -5691,9 +5703,9 @@ write@1.0.3:
     mkdirp "^0.5.1"
 
 ws@^7.0.0:
-  version "7.2.3"
-  resolved "https://registry.yarnpkg.com/ws/-/ws-7.2.3.tgz#a5411e1fb04d5ed0efee76d26d5c46d830c39b46"
-  integrity sha512-HTDl9G9hbkNDk98naoR/cHDws7+EyYMOdL1BmjsZXRUjf7d+MficC4B7HLUPlSiho0vg+CWKrGIt/VJBd1xunQ==
+  version "7.4.6"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-7.4.6.tgz#5654ca8ecdeee47c33a9a4bf6d28e2be2980377c"
+  integrity sha512-YmhHDO4MzaDLB+M9ym/mDA5z0naX8j7SIlT8f8z+I0VtzsRbekxEutHSme7NPS2qE8StCYQNUnfWdXta/Yu85A==
 
 x-is-string@^0.1.0:
   version "0.1.0"
