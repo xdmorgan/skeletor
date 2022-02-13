@@ -463,6 +463,18 @@
   dependencies:
     type-detect "4.0.8"
 
+"@skeletor/css@^0.16.0":
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/@skeletor/css/-/css-0.16.0.tgz#d522af937fd8c76508bad231a6c7c94ad149c12d"
+  integrity sha512-Q7piw8UBv6tz7qYZZoRRm16z6uQgsgR+rbCpl+G4B60HuzWV2bY4BudZkTPa4ayDaX7WVFfaN9ntVL3xZEzoIg==
+  dependencies:
+    fs-extra "^8.1.0"
+    json-to-scss "^1.5.0"
+    meow "^6.0.0"
+    node-gzip "^1.1.2"
+    node-sass "^4.9.3"
+    yaml "^1.8.3"
+
 "@types/babel__core@^7.1.7":
   version "7.1.7"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.7.tgz#1dacad8840364a57c98d0dd4855c6dd3752c6b89"
@@ -1849,9 +1861,9 @@ flatted@^2.0.0:
   integrity sha512-r5wGx7YeOwNWNlCA0wQ86zKyDLMQr+/RB8xy74M4hTphfmjlijTSSXGuH8rnvKZnfT9i+75zmd8jcKdMR4O6jA==
 
 follow-redirects@^1.0.0:
-  version "1.13.0"
-  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.13.0.tgz#b42e8d93a2a7eea5ed88633676d6597bc8e384db"
-  integrity sha512-aq6gF1BEKje4a9i9+5jimNFIpq4Q1WiwBToeRK5NvZBd/TRsmW8BsJfOEGkr76TbOyPVD3OVDN910EcUNtRYEA==
+  version "1.14.8"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.8.tgz#016996fb9a11a100566398b1c6839337d7bfa8fc"
+  integrity sha512-1x0S9UVJHsQprFcEC/qnNzBLcIxsjAV905f/UkQxbclCsoTWlacCNOpQa/anodLl2uaEKFhfWOvM2Qg77+15zA==
 
 for-in@^1.0.2:
   version "1.0.2"
